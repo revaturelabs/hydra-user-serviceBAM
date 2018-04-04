@@ -4,12 +4,12 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.revature</groupId>
-	<artifactId>bam</artifactId>
+	<artifactId>hydra-user-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>bam</name>
-	<description>BAM Phoenix Reborn</description>
+	<name>hydra-user-service</name>
+	<description>BAM Phoenix's hydra-user-service</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -64,11 +64,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.oracle</groupId>
-			<artifactId>ojdbc7</artifactId>
-			<version>12.1.0</version>
 		</dependency>
 	</dependencies>
 
