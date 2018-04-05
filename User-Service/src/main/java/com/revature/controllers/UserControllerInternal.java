@@ -7,6 +7,7 @@ import javax.servlet.ServletException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,27 +28,37 @@ public class UserControllerInternal {
 
 	@Autowired
 	BamUserService userService;
-
+	
 	/**
-	 * @author Jeffrey Camacho 1712-dec10-java-Steve Method returns users not in
-	 *         batch
+	 * @author Jeffrey Camacho 1712-dec10-java-Steve 
 	 * 
-	 * @param
-	 * @return List<BamUser>
+	 * Return the users that are not in any existing batch
+	 * 
+	 * @return a list of users that are not in any existing batch 
 	 */
 	@GetMapping("notinabatch")
 	public List<BamUser> getUsersNotInBatch() {
 		return userService.findUsersNotInBatch();
 	}
-
+	
+	/**
+	 * @author Jeffrey Camacho 1712-dec10-java-Steve 
+	 * 
+	 * Return all the users in the database
+	 * 
+	 * @return a list of all the users in the database 
+	 */
 	@GetMapping("all")
 	public List<BamUser> getAllUsers() {
 		return userService.findAllUsers();
 	}
 
 	/**
-	 * @author Jeffrey Camacho 1712-dec10-java-Steve Method gets all trainers
-	 * @return List<BamUser> : all trainers
+	 * @author Jeffrey Camacho 1712-dec10-java-Steve 
+	 * 
+	 * Return all the trainers in the database
+	 * 
+	 * @return a list of all the users in the database whose role is trainer
 	 */
 	@GetMapping("alltrainers")
 	public List<BamUser> getAllTrainers() {
@@ -55,8 +66,11 @@ public class UserControllerInternal {
 	}
 
 	/**
-	 * @author Jeffrey Camacho 1712-dec10-java-Steve Method gets all associates
-	 * @return List<BamUser> : all associates
+	 * @author Jeffrey Camacho 1712-dec10-java-Steve 
+	 * 
+	 * Return all the associates in the database
+	 * 
+	 * @return a list of all the users in the database whose role is associate
 	 */
 	@GetMapping("allassociates")
 	public List<BamUser> getAllAssociates() {
@@ -65,46 +79,56 @@ public class UserControllerInternal {
 
 	/**
 	 * @author Jeffrey Camacho 1712-dec10-java-Steve Method gets all users in batch
-	 * @param int
-	 *            BATCHID
-	 * @return List<BamUser> : users in batch
-	 * @throws IOException
-	 * @throws ServletException
+	 * Find the users in a specific batch identified by batchId
+	 * 
+     * @param	batchId		the ID of the specific batch
+     * @return	a list of all the users in the specific batch
+	 * @throws 	IOException
+	 * @throws 	ServletException
 	 */
 	@GetMapping("inbatch/{batchId}")
 	public List<BamUser> getUsersInBatch(@PathVariable int batchId) {
-		// Retrieve and return users in a batch from the database
 		return userService.findUsersInBatch(batchId);
 	}
+	
 	/**
-	 * @author Jeffrey Camacho 1712-dec10-java-Steve Method returns users not in
-	 *         batch
+	 * @author Jeffrey Camacho 1712-dec10-java-Steve Method gets all users in batch
+	 * Find a specific user identified by email
 	 * 
-	 * @param
-	 * @return List<BamUser>
+     * @param	email		the email of the specific user
+     * @return	the specific user identified by his email
+	 * @throws 	IOException
+	 * @throws 	ServletException
 	 */
 	@GetMapping("byEmail/{email}")
 	public BamUser getUsersByEmail(@PathVariable String email) {
 		BamUser user = userService.findUserByEmail(email);
 		return user;
 	}
+	
 	/**
-	 * @author TJay Cargle 1801-jan8-java
+	 * @author Jeffrey Camacho 1712-dec10-java-Steve Method gets all users in batch
+	 * Find a specific user identified by ID
 	 * 
-	 * @param
-	 * @return BamUser
+     * @param	id		the ID of the specific user
+     * @return	the specific user identified by his ID
+	 * @throws 	IOException
+	 * @throws 	ServletException
 	 */
 	@GetMapping("getById/{id}")
 	public BamUser getUsersById(@PathVariable Integer id) {
 		BamUser user = userService.findUserById(id);
 		return user;
 	}
+	
 	/**
-	 * @author Jeffrey Camacho 1712-dec10-java-Steve Updates the current user
+	 * @author Jeffrey Camacho 1712-dec10-java-Steve Method gets all users in batch
+	 * Update the currently logged in user
 	 * 
-	 * @param currentUser
-	 * @return BamUser
-	 * @throws AuthUserException 
+     * @param	currentUser		the user object of the currently logged in user
+     * @return	the updated user object of the currently logged in user
+	 * @throws 	IOException
+	 * @throws 	ServletException
 	 */
 	@PostMapping("update")
 	public BamUser updateUser(@RequestBody BamUser currentUser) throws AuthUserException {
