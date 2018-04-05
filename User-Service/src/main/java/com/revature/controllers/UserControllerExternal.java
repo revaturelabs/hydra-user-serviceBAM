@@ -52,7 +52,7 @@ public class UserControllerExternal {
 
 		// Drop user from the batch
 		user.setBatch(null);
-		user.setRole(Role.NONE);// 0 role does not exist in database, use 1 to test method checks good.
+		user.setRole(Role.INACTIVE);// 0 role does not exist in database, use 1 to test method checks good.
 		userService.addOrUpdateUser(user);
 
 		// Return users from batch without the user
@@ -67,6 +67,7 @@ public class UserControllerExternal {
 	 * @return the updated BamUser
 	 * @throws AuthUserException 
 	 */
+	//TODO: FIND OUT WHAT CURRENTUSER IS
 	@PostMapping("update")
 	public BamUser updateUser(@RequestBody BamUser currentUser) throws AuthUserException {
 		BamUser user = userService.findUserByEmail(currentUser.getEmail());
@@ -92,9 +93,9 @@ public class UserControllerExternal {
 	public BamUser addUser(@RequestBody BamUser currentUser) throws AuthUserException {
 		if (userService.findUserByEmail(currentUser.getEmail()) == null) {
 			currentUser.setRole(Role.ASSOCIATE);
-			String password = currentUser.getPwd();
-			String hashed = this.bCryptPasswordEncoder.encode(password);
-			currentUser.setPwd(hashed);
+			String password = currentUser.getPassword();
+			String hashedPassword = this.bCryptPasswordEncoder.encode(password);
+			currentUser.setPassword(hashedPassword);
 			return userService.addOrUpdateUser(currentUser);
 		} else {
 			throw new AuthUserException("User not added", HttpStatus.BAD_REQUEST);
@@ -144,10 +145,11 @@ public class UserControllerExternal {
 
 		BamUser user = userService.findUserById(userId);
 		user.setBatch(batchId);
-
-		BamUser addedUser = userService.addOrUpdateUser(user);
-
-		if (addedUser != null) {
+		
+		//Adds user to database and returns a new user object.
+		BamUser addUserCheck = userService.addOrUpdateUser(user);
+		//Checks if user was added to database successfully. addUserCheck will be null if it failed to add to DB
+		if (addUserCheck != null) {
 			return userService.findUsersNotInBatch();
 		} else {
 			throw new AuthUserException("User not added/available", HttpStatus.BAD_REQUEST);

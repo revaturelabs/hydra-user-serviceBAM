@@ -22,10 +22,5 @@ public class UserServiceApplication {
     public BCryptPasswordEncoder bCryptPasswordEncoder() {
         return new BCryptPasswordEncoder();
     }
-	
-//	@LoadBalanced
-//	@Bean
-//	public RestTemplate buildRestTemplate(RestTemplateBuilder restTemplateBuilder){
-//		return restTemplateBuilder.build();
-//	}
+
 }
