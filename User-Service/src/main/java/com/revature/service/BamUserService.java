@@ -1,4 +1,4 @@
-package com.revature.demo.service;
+package com.revature.service;
 
 import java.util.List;
 
@@ -6,12 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.revature.demo.beans.BamUser;
-import com.revature.demo.beans.Role;
-import com.revature.demo.repository.BamUserRepository;
+import com.revature.beans.BamUser;
+import com.revature.beans.Role;
+import com.revature.repository.BamUserRepository;
 
 
-/*
+/**
  * Author: Devin Dellamano
  * Purpose: Business Logic between controller and repository
  */

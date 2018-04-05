@@ -1,11 +1,6 @@
-package com.revature.demo.beans;
+package com.revature.beans;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
-
-import org.springframework.stereotype.Component;
-
-/*
+/**
  * Author: Devin Dellamano
  * Purpose: Look up table for the user's role
  * Additional Information: 
@@ -16,6 +11,4 @@ import org.springframework.stereotype.Component;
 
 public enum Role {
     NONE, ASSOCIATE, TRAINER, ADMIN;
-
-
 }

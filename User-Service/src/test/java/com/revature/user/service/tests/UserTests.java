@@ -9,10 +9,10 @@ import java.util.List;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import com.revature.demo.beans.BamUser;
-import com.revature.demo.beans.Role;
-import com.revature.demo.repository.BamUserRepository;
-import com.revature.demo.service.BamUserService;
+import com.revature.beans.BamUser;
+import com.revature.beans.Role;
+import com.revature.repository.BamUserRepository;
+import com.revature.service.BamUserService;
 
 
 

@@ -1,24 +1,21 @@
-package com.revature.demo.beans;
+package com.revature.beans;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
-import org.springframework.stereotype.Component;
-
+/**
+ *  @author unknown
+ */
 
 @Entity
 @Table(name = "USERS")
-//@Component
+// @Component
 public class BamUser {
 
 	@Id
@@ -43,19 +40,13 @@ public class BamUser {
 	private String email;
 
 	@Column(name = "Password")
-	@NotNull(message="Password cannot be empty")
+	@NotNull(message = "Password cannot be empty")
 	private String pwd;
 
 	@Column(name = "Role")
 	private Role role;
-	
-	//@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	//@JoinColumn(name = "BATCH_ID", referencedColumnName = "BATCH_ID")
-	//@Autowired // Batch ID should only be used for associates. DO NOT use this
-	private Integer batch; // field to assign a batch to a trainer. It should be
-							// null for
-							// trainers and admins. A trainer is assigned in the
-							// Batches table.
+
+	private Integer batch;
 
 	@Column(name = "Main_Phone")
 	@NotNull(message = "Primary phone cannot be empty")
@@ -66,21 +57,20 @@ public class BamUser {
 
 	@Column(name = "Skype_ID")
 	private String skype;
-	
+
 	@Column(name = "Password_Bak") // This is a backup password that will be
 									// used when
 	private String pwd2;// the user needs to reset their password.
 
-	@Column(name="AssignForce_ID")
+	@Column(name = "AssignForce_ID")
 	private Integer assignForceID;
-	
-	
+
 	public BamUser() {
 		super();
 	}
 
-	public BamUser(String fName, String mName, String lName, String email, String pwd, Role	 role,
-			int batch, String phone, String phone2, String skype, String pwd2) {//NOSONAR
+	public BamUser(String fName, String mName, String lName, String email, String pwd, Role role, int batch,
+			String phone, String phone2, String skype, String pwd2) {// NOSONAR
 		super();
 		this.fName = fName;
 		this.mName = mName;
@@ -95,38 +85,16 @@ public class BamUser {
 		this.pwd2 = pwd2;
 	}
 
-	public BamUser(int userId, String fName, String mName, String lName, String email, String pwd, Role role,
-			int batch, String phone, String phone2, String skype, String pwd2) {//NOSONAR
-		super();
-		this.fName = fName;
-		this.mName = mName;
-		this.lName = lName;
-		this.email = email;
+	public BamUser(int userId, String fName, String mName, String lName, String email, String pwd, Role role, int batch,
+			String phone, String phone2, String skype, String pwd2) {// NOSONAR
+		this(fName, mName, lName, email, pwd, role, batch, phone, phone2, skype, pwd2);
 		this.userId = userId;
-		this.pwd = pwd;
-		this.role = role;
-		this.batch = batch;
-		this.phone = phone;
-		this.phone2 = phone2;
-		this.skype = skype;
-		this.pwd2 = pwd2;
 	}
 
-	public BamUser(int userId, String fName, String mName, String lName, String email, String pwd, Role role,
-			int batch, String phone, String phone2, String skype, String pwd2, Integer AssignForceID) {//NOSONAR
-		super();
-		this.userId = userId;
-		this.fName = fName;
-		this.mName = mName;
-		this.lName = lName;
-		this.email = email;
-		this.pwd = pwd;
-		this.role = role;
-		this.batch = batch;
-		this.phone = phone;
-		this.phone2 = phone2;
-		this.skype = skype;
-		this.pwd2 = pwd2;
+	public BamUser(int userId, String fName, String mName, String lName, String email, String pwd, Role role, int batch,
+			String phone, String phone2, String skype, String pwd2, Integer AssignForceID) {// NOSONAR
+
+		this(userId, fName, mName, lName, email, pwd, role, batch, phone, phone2, skype, pwd2);
 		this.assignForceID = AssignForceID;
 	}
 
@@ -232,5 +200,22 @@ public class BamUser {
 
 	public void setBatch(Integer invalid) {
 		this.batch = invalid;
+	}
+
+	@Override
+	public String toString() {
+		return "BamUser [/n(User Id) /t userId = " + userId
+				+ "/n(First Name) /t fName = " + fName
+				+ "/n(Middle Name) /t mName = " + mName
+				+ "/n(Last Name) /t lName = " + lName
+				+ "/n(Email) /t email = " + email
+				+ "/n(Password) /t pwd = " + pwd
+				+ "/n(Role) /t role = " + role
+				+ "/n(Batch) /t batch = " + batch
+				+ "/n(Phone Number) /t phone = " + phone
+				+ "/n(2nd Phone Number) /t phone2 = " + phone2
+				+ "/n(Skype ID) /t skype = " + skype
+				+ "/n(Back up Password) /t pwd2 = " + pwd2
+				+ "/n(Forcefully assigns an ID) /t assignForceID = " + assignForceID + "]";
 	}
 }
