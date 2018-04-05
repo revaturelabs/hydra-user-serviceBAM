@@ -1,4 +1,4 @@
-package com.revature.demo.exception;
+package com.revature.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

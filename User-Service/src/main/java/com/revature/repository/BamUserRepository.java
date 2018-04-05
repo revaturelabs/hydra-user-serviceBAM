@@ -1,12 +1,12 @@
-package com.revature.demo.repository;
+package com.revature.repository;
 
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
-import com.revature.demo.beans.BamUser;
-import com.revature.demo.beans.Role;
+import com.revature.beans.BamUser;
+import com.revature.beans.Role;
 
 @RepositoryRestResource
 public interface BamUserRepository extends JpaRepository<BamUser, Integer>{

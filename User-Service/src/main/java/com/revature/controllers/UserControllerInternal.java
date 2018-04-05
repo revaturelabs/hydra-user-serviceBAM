@@ -1,4 +1,4 @@
-package com.revature.demo.controllers;
+package com.revature.controllers;
 
 import java.io.IOException;
 import java.util.List;
@@ -7,7 +7,6 @@ import javax.servlet.ServletException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,10 +15,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.revature.demo.beans.BamUser;
-import com.revature.demo.beans.Role;
-import com.revature.demo.exception.AuthUserException;
-import com.revature.demo.service.BamUserService;
+import com.revature.beans.BamUser;
+import com.revature.beans.Role;
+import com.revature.exception.AuthUserException;
+import com.revature.service.BamUserService;
 
 @RestController
 @RequestMapping("")
@@ -28,7 +27,6 @@ public class UserControllerInternal {
 
 	@Autowired
 	BamUserService userService;
-	
 
 	/**
 	 * @author Jeffrey Camacho 1712-dec10-java-Steve Method returns users not in

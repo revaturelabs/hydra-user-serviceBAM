@@ -1,6 +1,6 @@
-package com.revature.demo.pojo;
+package com.revature.beans;
 
-/*
+/**
  * Author: Devin Dellamano
  * Purpose: Provides the type for each batch
  */
@@ -8,11 +8,10 @@ public class BatchType {
 
 	private int id;
 	private String name;
-	//length = 10 for now, this defaults to 10 and can't be changed.
+	// length = 10 for now, this defaults to 10 and can't be changed.
 	private int length = 10; // in the future, this field can be editable.
-	
+
 	public BatchType() {
-		// TODO Auto-generated constructor stub
 	}
 
 	public BatchType(int id, String name, int length) {
@@ -48,8 +47,9 @@ public class BatchType {
 
 	@Override
 	public String toString() {
-		return "BatchType [id=" + id + ", name=" + name + ", length=" + length + "]";
+		return "BatchType [/n(Batch Type ID) /t id = " + id
+				+ "/n(Batch Type Name) /t name = " + name
+				+ "/n(Batch Type Length) /t length = " + length + "]";
 	}
-	
-	
+
 }

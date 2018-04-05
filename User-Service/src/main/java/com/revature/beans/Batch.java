@@ -1,8 +1,12 @@
-package com.revature.demo.pojo;
+package com.revature.beans;
 
 import java.sql.Timestamp;
 
-import com.revature.demo.beans.BamUser;
+
+/**
+ * @author unknown
+ *
+ */
 
 public class Batch {
 	
@@ -77,7 +81,9 @@ public class Batch {
 
 	@Override
 	public String toString() {
-		return "Batch [id=" + id + ", name=" + name + ", type=" + type + "]";
+		return "Batch [ (Batch ID) /t id = " + id
+				+ "/n(Batch Name) /t name = " + name
+				+ "/n(Batch Type) /t type = " + type + "]";
 	}
 	
 }
