@@ -34,13 +34,13 @@ public class UserControllerExternal {
 	@Resource
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 	/**
-	 * @author Jeffrey Camacho 1712-dec10-java-Steve Removes user from batch then
-	 *         returns user with updated batch. "0" role does not exist in the
+	 * @author Jeffrey Camacho 1712-dec10-java-Steve 
+	 * Removes user from batch then
+	 *         returns list with updated batch. "0" role does not exist in the
 	 *         database, when implemented this code will run.
 	 * 
-	 * @param int
-	 *            USERID
-	 * @return List<BamUser>: users from batch
+	 * @param userId Id of the BamUser we are going to drop 
+	 * @return Updated list of BamUsers from batch
 	 * @throws IOException
 	 * @throws ServletException
 	 */
@@ -60,10 +60,11 @@ public class UserControllerExternal {
 	}
 
 	/**
-	 * @author Jeffrey Camacho 1712-dec10-java-Steve Updates the current user
+	 * @author Jeffrey Camacho 1712-dec10-java-Steve 
+	 * Updates the current user
 	 * 
-	 * @param currentUser
-	 * @return BamUser
+	 * @param currentUser WE THINK THIS IS THE USER LOGGED IN, PLEASE CHANGE WHEN WORKED ON
+	 * @return the updated BamUser
 	 * @throws AuthUserException 
 	 */
 	@PostMapping("update")
@@ -80,11 +81,11 @@ public class UserControllerExternal {
 	}
 
 	/**
-	 * @author Jeffrey Camacho 1712-dec10-java-Steve Method registers the current
-	 *         user
+	 * @author Jeffrey Camacho 1712-dec10-java-Steve 
+	 * Method registers the current user
 	 * 
-	 * @param currentUser
-	 * @return BamUser
+	 * @param currentUser	WE THINK THIS IS THE USER LOGGED IN, PLEASE CHANGE WHEN WORKED ON
+	 * @return BamUser that was registered	
 	 * @throws AuthUserException 
 	 */
 	@PostMapping("register")
@@ -101,12 +102,11 @@ public class UserControllerExternal {
 	}
 
 	/**
-	 * @author Jeffrey Camacho 1712-dec10-java-Steve Method removes user and returns
-	 *         updated batch
+	 * @author Jeffrey Camacho 1712-dec10-java-Steve 
+	 * Method removes user and returns updated batch
 	 * 
-	 * @param int
-	 *            USERID
-	 * @return List<BamUser>
+	 * @param  userID the id of the user we want to remove
+	 * @return Updated list of people in the batch
 	 * @throws AuthUserException 
 	 * @throws IOException
 	 * @throws ServletException
@@ -131,11 +131,12 @@ public class UserControllerExternal {
 	}
 
 	/**
-	 * @author Jeffrey Camacho 1712-dec10-java-Steve Method adds users to the batch
+	 * @author Jeffrey Camacho 1712-dec10-java-Steve 
+	 * adds users to the batch
 	 * 
-	 * @param int
-	 *            USERID, int BATCHID
-	 * @return List<BamUser>
+	 * @param userId id of the user we are adding to the batch
+	 * @param batchId id of the batch we want to add the user to
+	 * @return Updated list of all users in the batch
 	 * @throws AuthUserException 
 	 */
 	@PostMapping("addUserToBatch/{userId}/{batchId}")
@@ -155,9 +156,10 @@ public class UserControllerExternal {
 
 	/**
 	 * @author TJay Cargle 1801-jan8-java
+	 * Gets a specific user by their id
 	 * 
-	 * @param
-	 * @return BamUser
+	 * @param id id of the user we want to grab
+	 * @return User with that id
 	 */
 	@GetMapping("getById/{id}")
 	public BamUser getUsersById(@PathVariable Integer id) {
@@ -165,9 +167,9 @@ public class UserControllerExternal {
 		return user;
 	}
 	/**@author Jeffrey Camacho 1712-dec10-java-Steve
-	 * Method gets all users in batch
-	 * @param int BATCHID
-	 * @return List<BamUser> : users in batch
+	 * Gets all users in batch
+	 * @param batchId id of the batch we are trying to find
+	 * @return List of all users in batch
 	 * @throws IOException
 	 * @throws ServletException
 	 */
@@ -181,10 +183,9 @@ public class UserControllerExternal {
 	}
 	
 	/**@author Jeffrey Camacho 1712-dec10-java-Steve
-	 * Method returns users not in batch
+	 * Returns users not in any batch
 	 * 
-	 * @param 
-	 * @return List<BamUser>
+	 * @return List of users that are not in a batch
 	 */
 	@GetMapping("notinabatch")
 	public List<BamUser> getUsersNotInBatch() {
