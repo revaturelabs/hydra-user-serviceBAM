@@ -6,8 +6,8 @@ package com.revature.beans;
  */
 public class BatchType {
 
-	private int id;
-	private String name;
+	private int typeId;
+	private String typeName;
 	// length = 10 for now, this defaults to 10 and can't be changed.
 	private int length = 10; // in the future, this field can be editable.
 
@@ -16,25 +16,25 @@ public class BatchType {
 
 	public BatchType(int id, String name, int length) {
 		super();
-		this.id = id;
-		this.name = name;
+		this.typeId = id;
+		this.typeName = name;
 		this.length = length;
 	}
 
 	public int getId() {
-		return id;
+		return typeId;
 	}
 
 	public void setId(int id) {
-		this.id = id;
+		this.typeId = id;
 	}
 
 	public String getName() {
-		return name;
+		return typeName;
 	}
 
 	public void setName(String name) {
-		this.name = name;
+		this.typeName = name;
 	}
 
 	public int getLength() {
@@ -47,8 +47,8 @@ public class BatchType {
 
 	@Override
 	public String toString() {
-		return "BatchType [/n(Batch Type ID) /t id = " + id
-				+ "/n(Batch Type Name) /t name = " + name
+		return "BatchType [/n(Batch Type ID) /t id = " + typeId
+				+ "/n(Batch Type Name) /t name = " + typeName
 				+ "/n(Batch Type Length) /t length = " + length + "]";
 	}
 
