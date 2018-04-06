@@ -1,3 +1,7 @@
 spring:
   application:
     name: hydra-user-service
+  cloud:
+    config:
+      uri: http://localhost:8888
+
