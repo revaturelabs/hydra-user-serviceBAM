@@ -12,7 +12,7 @@ import com.revature.beans.Role;
 public interface BamUserRepository extends JpaRepository<BamUser, Integer>{
 	public BamUser findByUserId(int id);
 	public BamUser findByEmail(String email);
-	public List<BamUser> findByBatch(Integer batch);
+	public List<BamUser> findByBatchId(Integer batchId);
 	public List<BamUser> findByRole(Role role);
 	public List<BamUser> findByFirstNameAndLastName(String firstName, String lastName);
 }

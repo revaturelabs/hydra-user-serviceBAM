@@ -99,7 +99,7 @@ public class BamUserService {
 	 * @return the users in the specific batch
 	 */
 	public List<BamUser> findUsersInBatch(int batchId) {
-		return bamUserRepository.findByBatch(batchId);
+		return bamUserRepository.findByBatchId(batchId);
 	}
 
 	/**
@@ -109,7 +109,7 @@ public class BamUserService {
 	 * @return a list of users that are not in a batch
 	 */
 	public List<BamUser> findUsersNotInBatch() {
-		List<BamUser> users = bamUserRepository.findByBatch(0);
+		List<BamUser> users = bamUserRepository.findByBatchId(0);
 		for (int i = 0; i < users.size(); i++) {
 			// remove a user if their role is not an associate
 			if (users.get(i).getRole().ordinal() != 1) {
