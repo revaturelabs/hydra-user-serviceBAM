@@ -15,7 +15,6 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "USERS")
-// @Component
 public class BamUser {
 
 	@Id
@@ -46,7 +45,8 @@ public class BamUser {
 	@Column(name = "Role")
 	private Role role;
 
-	private Integer batch;
+	@Column(name = "Batch_Id")
+	private Integer batchId;
 
 	@Column(name = "Main_Phone")
 	@NotNull(message = "Primary phone cannot be empty")
@@ -78,23 +78,18 @@ public class BamUser {
 		this.email = email;
 		this.password = pwd;
 		this.role = role;
-		this.batch = batch;
+		this.batchId = batch;
 		this.phone = phone;
 		this.phone2 = phone2;
 		this.skype = skype;
 		this.temporaryPassword = pwd2;
 	}
 
-	public BamUser(int userId, String fName, String mName, String lName, String email, String pwd, Role role, int batch,
-			String phone, String phone2, String skype, String pwd2) {// NOSONAR
-		this(fName, mName, lName, email, pwd, role, batch, phone, phone2, skype, pwd2);
-		this.userId = userId;
-	}
 
-	public BamUser(int userId, String fName, String mName, String lName, String email, String pwd, Role role, int batch,
+	public BamUser(String fName, String mName, String lName, String email, String pwd, Role role, int batch,
 			String phone, String phone2, String skype, String pwd2, Integer AssignForceID) {// NOSONAR
 
-		this(userId, fName, mName, lName, email, pwd, role, batch, phone, phone2, skype, pwd2);
+		this(fName, mName, lName, email, pwd, role, batch, phone, phone2, skype, pwd2);
 		this.assignForceID = AssignForceID;
 	}
 
@@ -195,11 +190,11 @@ public class BamUser {
 	}
 
 	public int getBatch() {
-		return batch;
+		return batchId;
 	}
 
 	public void setBatch(Integer invalid) {
-		this.batch = invalid;
+		this.batchId = invalid;
 	}
 
 	@Override
@@ -211,7 +206,7 @@ public class BamUser {
 				+ "/n(Email) /t email = " + email
 				+ "/n(Password) /t pwd = " + password
 				+ "/n(Role) /t role = " + role
-				+ "/n(Batch) /t batch = " + batch
+				+ "/n(Batch) /t batch = " + batchId
 				+ "/n(Phone Number) /t phone = " + phone
 				+ "/n(2nd Phone Number) /t phone2 = " + phone2
 				+ "/n(Skype ID) /t skype = " + skype
