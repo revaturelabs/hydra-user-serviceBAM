@@ -88,7 +88,7 @@ public class BamUserService {
 	 *         name provided
 	 */
 	public List<BamUser> getByFNameAndLName(String f, String l) {
-		return bamUserRepository.findByFNameAndLName(f, l);
+		return bamUserRepository.findByFirstNameAndLastName(f, l);
 	}
 
 	/**

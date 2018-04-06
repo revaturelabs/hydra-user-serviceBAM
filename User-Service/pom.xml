@@ -89,6 +89,7 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+
 				 <configuration>
         <archive>
           <manifest>
@@ -98,6 +99,7 @@
           </manifest>
         </archive>
       </configuration>
+
 			</plugin>
 		</plugins>
 	</build>
