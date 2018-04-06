@@ -26,42 +26,15 @@ import com.revature.exception.AuthUserException;
 import com.revature.service.BamUserService;
 
 @RestController
-//@RequestMapping("/api/v2/user/")
-@RequestMapping("/api/v3")
+@RequestMapping("/api/v2")
 @CrossOrigin
-public class UserControllerExternal {
+public class UserController {
 
 	@Autowired
 	BamUserService userService;
 
 	@Resource
     private BCryptPasswordEncoder bCryptPasswordEncoder;
-//	/**
-//	 * @author Jeffrey Camacho 1712-dec10-java-Steve 
-//	 * Removes user from batch then
-//	 *         returns list with updated batch. "0" role does not exist in the
-//	 *         database, when implemented this code will run.
-//	 * 
-//	 * @param userId Id of the BamUser we are going to drop 
-//	 * @return Updated list of BamUsers from batch
-//	 * @throws IOException
-//	 * @throws ServletException
-//	 */
-////	@PostMapping("drop/{userId}")
-//	@DeleteMapping("/user/{userId}")
-//	public List<BamUser> dropUserFromBatch(@PathVariable int userId) {
-//
-//		BamUser user = userService.findUserById(userId);
-//		int batchId = user.getBatch();
-//
-//		// Drop user from the batch
-//		user.setBatch(null);
-//		user.setRole(Role.INACTIVE);// 0 role does not exist in database, use 1 to test method checks good.
-//		userService.addOrUpdateUser(user);
-//
-//		// Return users from batch without the user
-//		return userService.findUsersInBatch(batchId);
-//	}
 
 	/**
 	 * @author Jeffrey Camacho 1712-dec10-java-Steve 
@@ -72,12 +45,7 @@ public class UserControllerExternal {
 	 * @throws AuthUserException 
 	 */
 	//TODO: FIND OUT WHAT CURRENTUSER IS
-<<<<<<< HEAD
-    // @PostMapping("update")
 	@PutMapping("/users/{userId}")
-=======
-	@PostMapping("update")
->>>>>>> master
 	public BamUser updateUser(@RequestBody BamUser currentUser) throws AuthUserException {
 		BamUser user = userService.findUserByEmail(currentUser.getEmail());
 		currentUser.setUserId(user.getUserId());
@@ -98,7 +66,6 @@ public class UserControllerExternal {
 	 * @return BamUser that was registered	
 	 * @throws AuthUserException 
 	 */
-//	@PostMapping("register")
 	@PostMapping("/users")
 	public BamUser addUser(@RequestBody BamUser currentUser) throws AuthUserException {
 		if (userService.findUserByEmail(currentUser.getEmail()) == null) {
@@ -122,7 +89,6 @@ public class UserControllerExternal {
 	 * @throws IOException
 	 * @throws ServletException
 	 */
-//	@PostMapping("remove/{userId}")
 	@DeleteMapping("/users/{userId}")
 	public List<BamUser> removeUser(@PathVariable int userId) throws AuthUserException {
 
@@ -151,7 +117,6 @@ public class UserControllerExternal {
 	 * @return Updated list of all users in the batch
 	 * @throws AuthUserException 
 	 */
-//	@PostMapping("addUserToBatch/{userId}/{batchId}")
 	@PutMapping("/users/{userId}/{batchId}")
 	public List<BamUser> addUserToBatch(@PathVariable int userId, @PathVariable int batchId) throws AuthUserException {
 
@@ -175,7 +140,6 @@ public class UserControllerExternal {
 	 * @param id id of the user we want to grab
 	 * @return User with that id
 	 */
-//	@GetMapping("getById/{id}")
 	@GetMapping("/users/{userId}")
 	public BamUser getUsersById(@PathVariable Integer id) {
 		BamUser user = userService.findUserById(id);
@@ -188,7 +152,6 @@ public class UserControllerExternal {
 	 * @throws IOException
 	 * @throws ServletException
 	 */
-//	@GetMapping("inbatch/{batchId}")
 	@GetMapping("/users/batches/{batchId}")
 	public ResponseEntity<List<BamUser>> getUsersInBatch(@PathVariable int batchId) {
 		
@@ -203,10 +166,64 @@ public class UserControllerExternal {
 	 * 
 	 * @return List of users that are not in a batch
 	 */
-//	@GetMapping("notinabatch")
 	@GetMapping("/users/batches/none")
 	public List<BamUser> getUsersNotInBatch() {
 		List<BamUser> usersNotInBatch = userService.findUsersNotInBatch();
 		return usersNotInBatch;
+	}
+	
+	/**
+	 * @author Jeffrey Camacho 1712-dec10-java-Steve 
+	 * 
+	 * Return all the users in the database
+	 * 
+	 * @return a list of all the users in the database 
+	 */
+
+	@GetMapping("/users")
+	public List<BamUser> getAllUsers() {
+		return userService.findAllUsers();
+	}
+	
+	/**
+	 * @author Jeffrey Camacho 1712-dec10-java-Steve 
+	 * 
+	 * Return all the trainers in the database
+	 * 
+	 * @return a list of all the users in the database whose role is trainer
+	 */
+
+	@GetMapping("/users/trainers")
+	public List<BamUser> getAllTrainers() {
+		return userService.findByRole(Role.TRAINER);
+	}
+
+	/**
+	 * @author Jeffrey Camacho 1712-dec10-java-Steve 
+	 * 
+	 * Return all the associates in the database
+	 * 
+	 * @return a list of all the users in the database whose role is associate
+	 */
+
+	@GetMapping("/users/associates")
+	public List<BamUser> getAllAssociates() {
+		return userService.findByRole(Role.ASSOCIATE);
+	}
+	
+	/**
+	 * @author Jeffrey Camacho 1712-dec10-java-Steve Method gets all users in batch
+	 * Find a specific user identified by email
+	 * 
+     * @param	email		the email of the specific user
+     * @return	the specific user identified by his email
+	 * @throws 	IOException
+	 * @throws 	ServletException
+	 */
+
+	@GetMapping("/users/{email}")
+	public BamUser getUsersByEmail(@PathVariable String email) {
+		BamUser user = userService.findUserByEmail(email);
+		return user;
 	}
 }
