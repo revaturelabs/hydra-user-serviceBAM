@@ -65,6 +65,11 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+		    <groupId>com.oracle</groupId>
+		    <artifactId>ojdbc8</artifactId>
+		    <version>12.2.0.1</version>
+		</dependency>
 	</dependencies>
 
 	<dependencyManagement>
@@ -84,15 +89,17 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+
 				 <configuration>
         <archive>
           <manifest>
             <addClasspath>true</addClasspath>
             <classpathPrefix>lib/</classpathPrefix>
-            <mainClass>com.revature.demo.UserServiceApplication</mainClass>
+            <mainClass>com.revature.UserServiceApplication</mainClass>
           </manifest>
         </archive>
       </configuration>
+
 			</plugin>
 		</plugins>
 	</build>

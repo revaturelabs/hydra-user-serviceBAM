@@ -10,8 +10,8 @@ import java.sql.Timestamp;
 
 public class Batch {
 	
-	private int id;
-	private String name;
+	private int batchId;
+	private String batchName;
 	private Timestamp startDate;
 	private Timestamp endDate;
 	private BamUser trainer;
@@ -23,8 +23,8 @@ public class Batch {
 
 	public Batch(int id, String name, Timestamp startDate, Timestamp endDate, BamUser trainer, BatchType type) {
 		super();
-		this.id = id;
-		this.name = name;
+		this.batchId = id;
+		this.batchName = name;
 		this.startDate = startDate;
 		this.endDate = endDate;
 		this.trainer = trainer;
@@ -32,19 +32,19 @@ public class Batch {
 	}
 
 	public int getId() {
-		return id;
+		return batchId;
 	}
 
 	public void setId(int id) {
-		this.id = id;
+		this.batchId = id;
 	}
 
 	public String getName() {
-		return name;
+		return batchName;
 	}
 
 	public void setName(String name) {
-		this.name = name;
+		this.batchName = name;
 	}
 
 	public Timestamp getStartDate() {
@@ -81,8 +81,8 @@ public class Batch {
 
 	@Override
 	public String toString() {
-		return "Batch [ (Batch ID) /t id = " + id
-				+ "/n(Batch Name) /t name = " + name
+		return "Batch [ (Batch ID) /t id = " + batchId
+				+ "/n(Batch Name) /t name = " + batchName
 				+ "/n(Batch Type) /t type = " + type + "]";
 	}
 	
