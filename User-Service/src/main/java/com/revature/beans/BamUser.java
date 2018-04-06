@@ -26,14 +26,14 @@ public class BamUser {
 
 	@Column(name = "First_Name")
 	@NotNull(message = "First name cannot be empty")
-	private String fName;
+	private String firstName;
 
 	@Column(name = "Middle_Name")
-	private String mName;
+	private String middleName;
 
 	@Column(name = "Last_Name")
 	@NotNull(message = "Last name cannot be empty")
-	private String lName;
+	private String lastName;
 
 	@Column(name = "EMail", unique = true)
 	@NotNull(message = "e-mail address cannot be empty")
@@ -41,7 +41,7 @@ public class BamUser {
 
 	@Column(name = "Password")
 	@NotNull(message = "Password cannot be empty")
-	private String pwd;
+	private String password;
 
 	@Column(name = "Role")
 	private Role role;
@@ -60,7 +60,7 @@ public class BamUser {
 
 	@Column(name = "Password_Bak") // This is a backup password that will be
 									// used when
-	private String pwd2;// the user needs to reset their password.
+	private String temporaryPassword;// the user needs to reset their password.
 
 	@Column(name = "AssignForce_ID")
 	private Integer assignForceID;
@@ -72,17 +72,17 @@ public class BamUser {
 	public BamUser(String fName, String mName, String lName, String email, String pwd, Role role, int batch,
 			String phone, String phone2, String skype, String pwd2) {// NOSONAR
 		super();
-		this.fName = fName;
-		this.mName = mName;
-		this.lName = lName;
+		this.firstName = fName;
+		this.middleName = mName;
+		this.lastName = lName;
 		this.email = email;
-		this.pwd = pwd;
+		this.password = pwd;
 		this.role = role;
 		this.batch = batch;
 		this.phone = phone;
 		this.phone2 = phone2;
 		this.skype = skype;
-		this.pwd2 = pwd2;
+		this.temporaryPassword = pwd2;
 	}
 
 	public BamUser(int userId, String fName, String mName, String lName, String email, String pwd, Role role, int batch,
@@ -106,28 +106,28 @@ public class BamUser {
 		this.userId = userId;
 	}
 
-	public String getfName() {
-		return fName;
+	public String getFirstName() {
+		return firstName;
 	}
 
-	public void setfName(String fName) {
-		this.fName = fName;
+	public void setfirstName(String fName) {
+		this.firstName = fName;
 	}
 
-	public String getmName() {
-		return mName;
+	public String getMiddleName() {
+		return middleName;
 	}
 
-	public void setmName(String mName) {
-		this.mName = mName;
+	public void setMiddleName(String mName) {
+		this.middleName = mName;
 	}
 
-	public String getlName() {
-		return lName;
+	public String getLastName() {
+		return lastName;
 	}
 
-	public void setlName(String lName) {
-		this.lName = lName;
+	public void setLastName(String lName) {
+		this.lastName = lName;
 	}
 
 	public String getEmail() {
@@ -138,12 +138,12 @@ public class BamUser {
 		this.email = email;
 	}
 
-	public String getPwd() {
-		return pwd;
+	public String getPassword() {
+		return password;
 	}
 
-	public void setPwd(String pwd) {
-		this.pwd = pwd;
+	public void setPassword(String pwd) {
+		this.password = pwd;
 	}
 
 	public Role getRole() {
@@ -178,12 +178,12 @@ public class BamUser {
 		this.skype = skype;
 	}
 
-	public String getPwd2() {
-		return pwd2;
+	public String getTemporaryPassword() {
+		return temporaryPassword;
 	}
 
-	public void setPwd2(String pwd2) {
-		this.pwd2 = pwd2;
+	public void setTemporaryPassword(String pwd2) {
+		this.temporaryPassword = pwd2;
 	}
 
 	public Integer getAssignForceID() {
@@ -205,17 +205,17 @@ public class BamUser {
 	@Override
 	public String toString() {
 		return "BamUser [/n(User Id) /t userId = " + userId
-				+ "/n(First Name) /t fName = " + fName
-				+ "/n(Middle Name) /t mName = " + mName
-				+ "/n(Last Name) /t lName = " + lName
+				+ "/n(First Name) /t fName = " + firstName
+				+ "/n(Middle Name) /t mName = " + middleName
+				+ "/n(Last Name) /t lName = " + lastName
 				+ "/n(Email) /t email = " + email
-				+ "/n(Password) /t pwd = " + pwd
+				+ "/n(Password) /t pwd = " + password
 				+ "/n(Role) /t role = " + role
 				+ "/n(Batch) /t batch = " + batch
 				+ "/n(Phone Number) /t phone = " + phone
 				+ "/n(2nd Phone Number) /t phone2 = " + phone2
 				+ "/n(Skype ID) /t skype = " + skype
-				+ "/n(Back up Password) /t pwd2 = " + pwd2
+				+ "/n(Back up Password) /t pwd2 = " + temporaryPassword
 				+ "/n(Forcefully assigns an ID) /t assignForceID = " + assignForceID + "]";
 	}
 }
