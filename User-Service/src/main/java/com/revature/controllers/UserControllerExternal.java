@@ -72,8 +72,12 @@ public class UserControllerExternal {
 	 * @throws AuthUserException 
 	 */
 	//TODO: FIND OUT WHAT CURRENTUSER IS
+<<<<<<< HEAD
     // @PostMapping("update")
 	@PutMapping("/users/{userId}")
+=======
+	@PostMapping("update")
+>>>>>>> master
 	public BamUser updateUser(@RequestBody BamUser currentUser) throws AuthUserException {
 		BamUser user = userService.findUserByEmail(currentUser.getEmail());
 		currentUser.setUserId(user.getUserId());
