@@ -23,7 +23,10 @@ import com.revature.beans.BamUser;
 import com.revature.beans.Role;
 import com.revature.exception.AuthUserException;
 import com.revature.service.BamUserService;
-
+/**
+ * @author Jeffrey Camacho 1712-dec10-java-Steve Updates the current user
+ * 
+ */
 @RestController
 public class UserController {
 
