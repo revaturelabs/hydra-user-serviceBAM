@@ -25,7 +25,6 @@ import com.revature.exception.AuthUserException;
 import com.revature.service.BamUserService;
 
 @RestController
-@CrossOrigin
 public class UserController {
 
 	@Autowired
