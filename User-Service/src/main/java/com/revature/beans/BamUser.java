@@ -10,7 +10,9 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 /**
- *  @author unknown
+ * @author Unknown
+ * Last updated by: John Talanian, April 9th 2018
+ * Updated Java Docs
  */
 
 @Entity
@@ -197,6 +199,12 @@ public class BamUser {
 		this.batchId = invalid;
 	}
 
+	/**
+	 * @author Unknown
+	 * @return toString
+	 * Last updated by: John Talanian, April 9th 2018
+	 * Updated Java Docs
+	 */	
 	@Override
 	public String toString() {
 		return "BamUser [/n(User Id) /t userId = " + userId

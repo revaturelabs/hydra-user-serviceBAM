@@ -8,7 +8,12 @@ package com.revature.beans;
  * 		-Role 1 is for associates
  * 		-Role 2 is for trainers & QC
  * 		-Role 3 is for admins
+ * 
+ * @author Devin Dellamano
+ * Last updated by: John Talanian, April 9th 2018
+ * Updated Java Docs
  */
+ 
 
 public enum Role {
     INACTIVE, ASSOCIATE, TRAINER, ADMIN;

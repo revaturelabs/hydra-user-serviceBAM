@@ -7,7 +7,11 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 import com.revature.beans.BamUser;
 import com.revature.beans.Role;
-
+/**
+ * @author Unknown
+ * Last updated by: John Talanian, April 9th 2018
+ * Updated Java Docs
+ */
 @RepositoryRestResource
 public interface BamUserRepository extends JpaRepository<BamUser, Integer>{
 	public BamUser findByUserId(int id);

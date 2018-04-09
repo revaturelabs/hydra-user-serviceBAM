@@ -13,6 +13,7 @@ import com.revature.repository.BamUserRepository;
 /**
  * Author: Devin Dellamano Purpose: Business Logic between controller and
  * repository
+ * @author Devin Dellamano
  */
 @Service
 public class BamUserService {
@@ -25,7 +26,7 @@ public class BamUserService {
 	}
 
 	/**
-	 * @author 
+	 * @author Devin Dellamano
 	 * Save the user to the database if the user doesn't exist, update the
 	 *         user's information if he does exist
 	 * 
@@ -38,7 +39,7 @@ public class BamUserService {
 	}
 
 	/**
-	 * @author 
+	 * @author Devin Dellamano
 	 * Gets all the BamUsers in the database
 	 * 
 	 * @return List of BamUsers containing all entries in the database
@@ -48,7 +49,7 @@ public class BamUserService {
 	}
 
 	/**
-	 * @author 
+	 * @author Devin Dellamano
 	 * Gets all BamUsers of a particular role
 	 * 
 	 * @param trainer the Role we want to filter the search by
@@ -59,7 +60,7 @@ public class BamUserService {
 	}
 
 	/**
-	 * @author 
+	 * @author Devin Dellamano
 	 * Gets a particular BamUser by their id
 	 * @param userId the id of the BamUser we are trying to find
 	 * @return BamUser with that particular id
@@ -69,7 +70,7 @@ public class BamUserService {
 	}
 
 	/**
-	 * @author 
+	 * @author Devin Dellamano
 	 * Returns a specific BamUser by their email
 	 * @param email the email of the BamUser we are trying to find
 	 * @return BamUser with that particular email
@@ -79,7 +80,7 @@ public class BamUserService {
 	}
 
 	/**
-	 * @author 
+	 * @author Devin Dellamano
 	 * Find a specific user identified by his first and last name
 	 *
 	 * @param f the first name of the specific user
@@ -92,7 +93,7 @@ public class BamUserService {
 	}
 
 	/**
-	 * @author 
+	 * @author Devin Dellamano
 	 * Find the users in a specific batch identified by batchId
 	 *
 	 * @param batchId the ID of the specific batch
@@ -103,7 +104,7 @@ public class BamUserService {
 	}
 
 	/**
-	 * @author 
+	 * @author Devin Dellamano
 	 * Return the users that are not in a batch
 	 *
 	 * @return a list of users that are not in a batch
