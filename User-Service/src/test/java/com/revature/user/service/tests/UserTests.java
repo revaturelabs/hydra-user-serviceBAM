@@ -15,13 +15,19 @@ import com.revature.repository.BamUserRepository;
 import com.revature.service.BamUserService;
 
 
-
+/**
+ * @author Unknown
+ * Last updated by: (1802-Matt)
+ */
 public class UserTests {
 	
 	static BamUserRepository mockUserRepo = mock(BamUserRepository.class);
 	static BamUser mockUser = mock(BamUser.class);
 	static BamUserService bamService = new BamUserService(mockUserRepo);
-	
+	/**
+	 * @author Unknown
+	 *  Last updated by: (1802-Matt)
+	 */
 	@BeforeClass
 	 public static void onceExecutedBeforeAll() {
 		BamUser bam = new BamUser("Cal","c","Cay","a@mail.com","1", Role.TRAINER,1,"2234568794",null,null,null);
@@ -33,7 +39,10 @@ public class UserTests {
 		bamService.addOrUpdateUser(bam3);
 
 	}
-
+	/**
+	 * @author Unknown
+	 * Last updated by: (1802-Matt)
+	 */
 	@Test
 	public void testAddOrUpdateUserReturnsCorrectRole() {
 		
@@ -50,7 +59,10 @@ public class UserTests {
 		assertEquals(mockUser.getRole(),Role.ASSOCIATE);
 	}
 	
-	
+	/**
+	 * @author Unknown
+	 * Last updated by: (1802-Matt)
+	 */
 	@Test
 	public void testFindUsersInBatchNotNull() {
 		
@@ -66,6 +78,10 @@ public class UserTests {
 		assertNotNull(bamService.findUsersInBatch(2));
 	}
 	
+	/**
+	 * @author Unknown
+	 * Last updated by: (1802-Matt)
+	 */
 	@Test
 	public void testFindUsersByRoleNotNull() {
 		
@@ -80,6 +96,10 @@ public class UserTests {
 		assertNotNull(bamService.findByRole(Role.TRAINER));//2 is Trainer
 	}
 	
+	/**
+	 * @author Unknown
+	 * Last updated by: (1802-Matt)
+	 */
 	@Test
 	public void testInternalControllerFindAllUsers() {
 		
@@ -90,6 +110,10 @@ public class UserTests {
 		assertNotNull(users);
 	}
 	
+	/**
+	 * @author Unknown
+	 * Last updated by: (1802-Matt)
+	 */
 	@Test
 	public void testInternalControllerFindTrainers() {
 		
