@@ -1,18 +1,27 @@
 package com.revature.user.service.tests;
 
+import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 import java.util.List;
 
+import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration;
 
 import com.revature.beans.BamUser;
 import com.revature.beans.Role;
 import com.revature.repository.BamUserRepository;
 import com.revature.service.BamUserService;
+
+import io.restassured.RestAssured;
+import io.restassured.path.json.JsonPath;
+import io.restassured.response.Response;
+
+import org.hamcrest.Matchers.*;
 
 
 /**
@@ -124,5 +133,35 @@ public class UserTests {
 		assertNotNull(trainers);
 	}
 
+	/**
+	 * @author FEB-1802 John Brand, Matt's Branch
+	 * 
+	 *  Simple Unit Test.  Tests to determine if RestAssured worked.  User inside H2 database with firstName Ryan and UserId of 50.
+	 */
+	@Test
+	public void testRestAssured(){
+		
+		Response resp = RestAssured.get("http://localhost:9001/api/v2/users/50");//.andReturn();
+		
+		String json = resp.getBody().asString();
+		
+		JsonPath jsonPath = new JsonPath(json);
+		Assert.assertEquals("Ryan", jsonPath.getString("firstName"));
+		
+	}
 
+	
+	/**
+	 * @author FEB-1802 John Brand, Matt's Branch
+	 * 
+	 *  Simple Unit Test.  Tests to determine if RestAssured worked.  User inside H2 database with firstName Ryan and UserId of 50.
+	 */
+	@Test
+	public void testRestAssuredDotThen() {
+		
+		RestAssured.get("http://localhost:9001/api/v2/users/50").then().body("firstName", equalTo("Ryan"));
+	
+	}
+
+	
 }
