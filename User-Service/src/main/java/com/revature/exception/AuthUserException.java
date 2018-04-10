@@ -4,8 +4,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 /**
  * @author Unknown
- * Last updated by: John Talanian, April 9th 2018
- * Updated Java Docs
+ * Last updated by: (1802-Matt)
  */
 @ResponseStatus(value = HttpStatus.UNAUTHORIZED)
 public class AuthUserException extends RuntimeException {
@@ -18,8 +17,7 @@ public class AuthUserException extends RuntimeException {
 	 * @author Unknown
 	 * @param message String
 	 * @param HttpStatus httpStatus
-	 * Last updated by: John Talanian, April 9th 2018
-	 * Updated Java Docs
+	 * Last updated by: (1802-Matt)
 	 */
 	public AuthUserException(String message, HttpStatus httpStatus) {
 		this.message = message;

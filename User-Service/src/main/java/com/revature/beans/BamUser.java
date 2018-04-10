@@ -11,8 +11,7 @@ import javax.validation.constraints.NotNull;
 
 /**
  * @author Unknown
- * Last updated by: John Talanian, April 9th 2018
- * Updated Java Docs
+ * Last updated by: (1802-Matt)
  */
 
 @Entity
@@ -202,8 +201,7 @@ public class BamUser {
 	/**
 	 * @author Unknown
 	 * @return toString
-	 * Last updated by: John Talanian, April 9th 2018
-	 * Updated Java Docs
+	 * Last updated by: (1802-Matt)
 	 */	
 	@Override
 	public String toString() {

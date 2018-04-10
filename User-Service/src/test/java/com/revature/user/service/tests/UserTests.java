@@ -17,8 +17,7 @@ import com.revature.service.BamUserService;
 
 /**
  * @author Unknown
- * Last updated by: John Talanian, April 9th 2018
- * Updated Java Docs
+ * Last updated by: (1802-Matt)
  */
 public class UserTests {
 	
@@ -27,8 +26,7 @@ public class UserTests {
 	static BamUserService bamService = new BamUserService(mockUserRepo);
 	/**
 	 * @author Unknown
-	 * Last updated by: John Talanian, April 9th 2018
-	 * Updated Java Docs
+	 *  Last updated by: (1802-Matt)
 	 */
 	@BeforeClass
 	 public static void onceExecutedBeforeAll() {
@@ -43,8 +41,7 @@ public class UserTests {
 	}
 	/**
 	 * @author Unknown
-	 * Last updated by: John Talanian, April 9th 2018
-	 * Updated Java Docs
+	 * Last updated by: (1802-Matt)
 	 */
 	@Test
 	public void testAddOrUpdateUserReturnsCorrectRole() {
@@ -64,8 +61,7 @@ public class UserTests {
 	
 	/**
 	 * @author Unknown
-	 * Last updated by: John Talanian, April 9th 2018
-	 * Updated Java Docs
+	 * Last updated by: (1802-Matt)
 	 */
 	@Test
 	public void testFindUsersInBatchNotNull() {
@@ -84,8 +80,7 @@ public class UserTests {
 	
 	/**
 	 * @author Unknown
-	 * Last updated by: John Talanian, April 9th 2018
-	 * Updated Java Docs
+	 * Last updated by: (1802-Matt)
 	 */
 	@Test
 	public void testFindUsersByRoleNotNull() {
@@ -103,8 +98,7 @@ public class UserTests {
 	
 	/**
 	 * @author Unknown
-	 * Last updated by: John Talanian, April 9th 2018
-	 * Updated Java Docs
+	 * Last updated by: (1802-Matt)
 	 */
 	@Test
 	public void testInternalControllerFindAllUsers() {
@@ -118,8 +112,7 @@ public class UserTests {
 	
 	/**
 	 * @author Unknown
-	 * Last updated by: John Talanian, April 9th 2018
-	 * Updated Java Docs
+	 * Last updated by: (1802-Matt)
 	 */
 	@Test
 	public void testInternalControllerFindTrainers() {
