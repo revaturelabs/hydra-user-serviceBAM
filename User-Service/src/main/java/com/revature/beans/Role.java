@@ -10,8 +10,7 @@ package com.revature.beans;
  * 		-Role 3 is for admins
  * 
  * @author Devin Dellamano
- * Last updated by: John Talanian, April 9th 2018
- * Updated Java Docs
+ * Last updated by: (1802-Matt)
  */
  
 

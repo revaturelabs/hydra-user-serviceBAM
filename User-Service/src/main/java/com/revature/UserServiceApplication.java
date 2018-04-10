@@ -15,8 +15,7 @@ import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 /**
  * @author Unknown
- * Last updated by: John Talanian, April 9th 2018
- * Updated Java Docs
+ * Last updated by: (1802-Matt)
  */
 @EnableSwagger2
 @EnableScheduling
@@ -30,18 +29,16 @@ public class UserServiceApplication {
 	/**
 	 * @author Unknown
 	 * @return new BCryptPasswordEncoder object
-	 * Last updated by: John Talanian, April 9th 2018
-	 * Updated Java Docs
+	 * Last updated by: (1802-Matt)
 	 */
 	@Bean
 	public BCryptPasswordEncoder bCryptPasswordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
 	/**
-	 * @author Unknown
+	 * @author Jennifer Fox (1802-Matt)
 	 * @return new Swagger_2 Docket object
-	 * Last updated by: John Talanian, April 9th 2018
-	 * Updated Java Docs
+	 * Last updated by: (1802-Matt)
 	 */
 	@Bean
 	public Docket api() {

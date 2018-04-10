@@ -9,8 +9,7 @@ import com.revature.beans.BamUser;
 import com.revature.beans.Role;
 /**
  * @author Unknown
- * Last updated by: John Talanian, April 9th 2018
- * Updated Java Docs
+ * Last updated by: (1802-Matt)
  */
 @RepositoryRestResource
 public interface BamUserRepository extends JpaRepository<BamUser, Integer>{
