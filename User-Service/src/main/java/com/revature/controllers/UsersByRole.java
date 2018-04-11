@@ -12,7 +12,7 @@ import com.revature.service.BamUserService;
 
 /**
  * 
- * @author Feb 1802: John Brand, Matt's batch
+ * @author John Brand (1802-Matt)
  * 
  * handles all zuul endpoints /users/*ROLE*
  * 

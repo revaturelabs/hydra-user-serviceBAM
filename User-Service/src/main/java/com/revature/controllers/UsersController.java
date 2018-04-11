@@ -31,8 +31,8 @@ import com.revature.service.BamUserService;
  * 
  * handles all zuul endpoints /users/
  *
- *	POST - takes in a JSON BamUser, returns JSON of the registered BamUser
- *	GET - Returns a list<BamUser> of all users
+ *	POST ( / )- takes in a JSON BamUser, returns JSON of the registered BamUser
+ *	GET ( / ) - Returns a list<BamUser> of all users
  */
 
 @RestController
