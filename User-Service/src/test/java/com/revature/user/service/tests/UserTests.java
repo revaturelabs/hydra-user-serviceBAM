@@ -135,35 +135,7 @@ public class UserTests {
 		//Verify
 		assertNotNull(trainers);
 	}
-
-	/**
-	 * @author FEB-1802 John Brand, Matt's Branch
-	 * 
-	 *  Simple Unit Test.  Tests to determine if RestAssured worked.  User inside H2 database with firstName Ryan and UserId of 50.
-	 */
-	@Test
-	public void testRestAssured(){
-		
-		Response resp = RestAssured.get("http://localhost:9001/api/v2/users/50");//.andReturn();
-		
-		String json = resp.getBody().asString();
-		
-		JsonPath jsonPath = new JsonPath(json);
-		Assert.assertEquals("Ryan", jsonPath.getString("firstName"));
-		
-	}
 	
-	/**
-	 * @author FEB-1802 John Brand, Matt's Branch
-	 * 
-	 *  Simple Unit Test.  Tests to determine if RestAssured worked.  User inside H2 database with firstName Ryan and UserId of 50.
-	 */
-	@Test
-	public void testRestAssuredDotThen() {
-		
-		RestAssured.get("http://localhost:9001/api/v2/users/50").then().body("firstName", equalTo("Ryan"));
-	
-	}
 
 	
 }

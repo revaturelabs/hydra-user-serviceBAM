@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.beans.BamUser;
+import com.revature.beans.Role;
 import com.revature.exception.AuthUserException;
 import com.revature.service.BamUserService;
 
@@ -69,8 +70,11 @@ public class UsersByIdController {
 	// TODO: FIND OUT WHAT CURRENTUSER IS
 	@PutMapping("/{userId}")
 	public BamUser updateUser(@RequestBody BamUser currentUser) throws AuthUserException {
-		BamUser user = userService.findUserByEmail(currentUser.getEmail());
-		currentUser.setUserId(user.getUserId());
+
+		//If we pass in the Id, we should find the user by Id and no need to grab their email
+		//BamUser user = userService.findUserByEmail(currentUser.getEmail());
+		//currentUser.setUserId(user.getUserId());
+
 
 		BamUser updatedUser = userService.addOrUpdateUser(currentUser);
 		if (updatedUser != null) {
@@ -102,6 +106,9 @@ public class UsersByIdController {
 
 		// Set the user as inactive
 		user.setBatch(0); // TODO: zero may not exist in DATABASE, may need to be null
+
+		user.setRole(Role.INACTIVE);
+
 		userService.addOrUpdateUser(user);
 
 		// Return users from batch without the user
