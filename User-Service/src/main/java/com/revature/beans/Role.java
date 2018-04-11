@@ -1,21 +1,19 @@
-package com.revature.demo.beans;
+package com.revature.beans;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
-
-import org.springframework.stereotype.Component;
-
-/*
+/**
  * Author: Devin Dellamano
  * Purpose: Look up table for the user's role
  * Additional Information: 
+ * 		-Role 0 is for people who got dropped or fired
  * 		-Role 1 is for associates
  * 		-Role 2 is for trainers & QC
  * 		-Role 3 is for admins
+ * 
+ * @author Devin Dellamano
+ * Last updated by: (1802-Matt)
  */
+ 
 
 public enum Role {
-    NONE, ASSOCIATE, TRAINER, ADMIN;
-
-
+    INACTIVE, ASSOCIATE, TRAINER, ADMIN;
 }
