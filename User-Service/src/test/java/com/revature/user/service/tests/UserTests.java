@@ -1,27 +1,17 @@
 package com.revature.user.service.tests;
 
-import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 import java.util.List;
 
-import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration;
-
 import com.revature.beans.BamUser;
 import com.revature.beans.Role;
 import com.revature.repository.BamUserRepository;
 import com.revature.service.BamUserService;
-
-import io.restassured.RestAssured;
-import io.restassured.path.json.JsonPath;
-import io.restassured.response.Response;
-
-import org.hamcrest.Matchers.*;
 
 
 /**

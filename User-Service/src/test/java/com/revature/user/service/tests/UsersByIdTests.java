@@ -8,6 +8,18 @@ import org.junit.Test;
 
 import io.restassured.RestAssured;
 
+/**
+ * 
+ * @author Joshua Stark and John Brand (1802-Matt)
+ * 
+ * Tests for:
+ *  Get( /{userId} ) 
+ *	Put( /{userId} ) 
+ *	Delete( /{userId} ) 
+ *	Put( /{userId}/{batchId} )
+ *
+ */
+
 public class UsersByIdTests {
 
 	
