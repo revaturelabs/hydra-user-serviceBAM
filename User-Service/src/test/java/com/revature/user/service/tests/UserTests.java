@@ -26,8 +26,11 @@ import org.hamcrest.Matchers.*;
 
 /**
  * @author Unknown
- * Last updated by: (1802-Matt)
+ * Last updated by: Feb 1802: John Brand, Matt's Batch
+ * 
+ * 
  */
+
 public class UserTests {
 	
 	static BamUserRepository mockUserRepo = mock(BamUserRepository.class);
@@ -149,7 +152,6 @@ public class UserTests {
 		Assert.assertEquals("Ryan", jsonPath.getString("firstName"));
 		
 	}
-
 	
 	/**
 	 * @author FEB-1802 John Brand, Matt's Branch

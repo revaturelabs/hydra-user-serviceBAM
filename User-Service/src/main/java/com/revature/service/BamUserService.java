@@ -11,9 +11,8 @@ import com.revature.beans.Role;
 import com.revature.repository.BamUserRepository;
 
 /**
- * Author: Devin Dellamano Purpose: Business Logic between controller and
+ * @Author: Devin Dellamano Purpose: Business Logic between controller and
  * repository
- * @author Devin Dellamano
  */
 @Service
 public class BamUserService {
