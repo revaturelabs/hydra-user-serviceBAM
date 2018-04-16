@@ -16,7 +16,7 @@ import com.revature.service.BamUserService;
 
 /**
  * @author Unknown
- * Last updated by: Feb 1802: John Brand, Matt's Batch
+ * Last updated by: John Brand (1802-Matt)
  * 
  * 
  */

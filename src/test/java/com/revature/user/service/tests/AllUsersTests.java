@@ -19,16 +19,16 @@ import io.restassured.RestAssured;
 public class AllUsersTests {
 
 	/**
-	 * @author Joshua Stark (1802-Matt)
-	 * 
 	 * RESTAssured test to get all users
+	 * 
+	 * @author Joshua Stark (1802-Matt)
 	 */
 	@Test
 	public void testGetAllUsers() {
 
 		RestAssured.get("http://localhost:9001/api/v2/users/")
-		.then()
-		.body("[0].firstName", equalTo("Ryan"));
+			.then()
+			.body("[0].firstName", equalTo("Ryan"));
 	}
 	
 }

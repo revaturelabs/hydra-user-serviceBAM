@@ -21,9 +21,9 @@ import com.revature.service.BamUserService;
 
 /**
  * 
- * @author Feb-1802- John Brand -Matt's Batch
+ * @author John Brand (1802-Matt)
  *
- *	handles all zuul endpoints /users/{id}
+ *	handles all Zuul endpoints /users/{id}
  *
  *	Get( /{userId} ) - Get a user by their userId
  *	Put( /{userId} ) - Update user information
@@ -31,8 +31,8 @@ import com.revature.service.BamUserService;
  *						- but should not be returnable to client.  Preserved in Database for administrative purposes.
  *	Put( /{userId}/{batchId} ) - updates user of {userId}'s batch with {batchId}
  *
- *	NOTE: There is no Post method for /{userId} endpoint, userId are created by sequence in table, you can not add a user to 
- *		a table based off a userId.
+ *	NOTE: There is no Post method for /{userId} endpoint, userId are created by sequence in table, 
+ *		you can not add a user to a table based off a userId.
  *
  */
 
@@ -43,11 +43,12 @@ public class UsersByIdController {
 	BamUserService userService;
 	
 	/**
-	 * @author TJay Cargle 1801-jan8-java Gets a specific user by their id
+	 * Gets a specific user by their id
 	 * 
-	 * @param userId
-	 *            id of the user we want to grab
+	 * @author TJay Cargle 1801-jan8-java 
+	 * 
 	 * @return User with that id
+	 * @param Integer userId of the user we want to grab
 	 */
 	@GetMapping("/{userId}")
 	public BamUser getUsersById(@PathVariable Integer userId) {
@@ -57,24 +58,20 @@ public class UsersByIdController {
 	
 	
 	/**
-	 * @author Jeffrey Camacho 1712-dec10-java-Steve Updates the current user
+	 * Updates the current user
+	 * @author Jeffrey Camacho (1712-Steve)
 	 * 
-	 * @LastUpdated Feb-1802-John Brand-Matt's Batch
+	 * @LastUpdated John Brand and Joshua Stark (1802-Matt)
 	 * 		Moved to UsersByUserIdController
 	 * 
+	 * @return the updated BamUser
 	 * @param currentUser
 	 *            WE THINK THIS IS THE USER LOGGED IN, PLEASE CHANGE WHEN WORKED ON
-	 * @return the updated BamUser
 	 * @throws AuthUserException
 	 */
 	// TODO: FIND OUT WHAT CURRENTUSER IS
 	@PutMapping("/{userId}")
 	public BamUser updateUser(@RequestBody BamUser currentUser) throws AuthUserException {
-
-		//If we pass in the Id, we should find the user by Id and no need to grab their email
-		//BamUser user = userService.findUserByEmail(currentUser.getEmail());
-		//currentUser.setUserId(user.getUserId());
-
 
 		BamUser updatedUser = userService.addOrUpdateUser(currentUser);
 		if (updatedUser != null) {
@@ -85,15 +82,14 @@ public class UsersByIdController {
 	}
 	
 	/**
-	 * @author Jeffrey Camacho 1712-dec10-java-Steve Method removes user and returns
-	 *         updated batch
+	 * Method removes user and returns updated batch
+	 * @author Jeffrey Camacho (1712-Steve)  
 	 *         
-	 * @LastUpdated Feb-1802-John Brand-Matt's Batch
+	 * @LastUpdated John Brand (1802-Matt)
 	 * 		Moved to UsersByUserIdController
 	 * 
-	 * @param userID
-	 *            the id of the user we want to remove
 	 * @return Updated list of people in the batch
+	 * @param int userID of the user we want to remove
 	 * @throws AuthUserException
 	 * @throws IOException
 	 * @throws ServletException
@@ -105,7 +101,7 @@ public class UsersByIdController {
 		int batchId = user.getBatch();
 
 		// Set the user as inactive
-		user.setBatch(0); // TODO: zero may not exist in DATABASE, may need to be null
+		user.setBatch(0);
 
 		user.setRole(Role.INACTIVE);
 
@@ -121,13 +117,15 @@ public class UsersByIdController {
 	}
 	
 	/**
-	 * @author Jeffrey Camacho 1712-dec10-java-Steve adds users to the batch
+	 * adds users to the batch
+	 * @author Jeffrey Camacho (1712-Steve) 
 	 * 
-	 * @param userId
-	 *            id of the user we are adding to the batch
-	 * @param batchId
-	 *            id of the batch we want to add the user to
+	 * @LastUpdated John Brand (1802-Matt)
+	 * 		Moved to UsersByUserIdController
+	 * 
 	 * @return Updated list of all users in the batch
+	 * @param int userId of the user we are adding to the batch
+	 * @param int batchId of the batch we want to add the user to
 	 * @throws AuthUserException
 	 */
 	@PutMapping("/{userId}/{batchId}")

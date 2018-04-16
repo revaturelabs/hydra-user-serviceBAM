@@ -24,22 +24,23 @@ public class UsersByIdTests {
 
 	
 	/**
-	 * @author John Brand (1802-Matt)
+	 * Simple RestAssured test. Grabs user inside H2 database UserId of 50 and checks that firstName is Ryan.
 	 * 
-	 *  Simple RestAssured test. Grabs user inside H2 database UserId of 50 and checks that firstName is Ryan.
+	 * @author John Brand (1802-Matt)
 	 */
 	@Test
 	public void testGetUser() {
 		
-		RestAssured.get("http://localhost:9001/api/v2/users/50").then()
-		.body("firstName", equalTo("Ryan"));
+		RestAssured.get("http://localhost:9001/api/v2/users/50")
+			.then()
+			.body("firstName", equalTo("Ryan"));
 	
 	}
 	
 	/**
-	 * @author Joshua Stark (1802-Matt)
-	 * 
 	 * RESTAssured test to update name of user to the H2 database
+	 *  
+	 * @author Joshua Stark (1802-Matt)
 	 */
 	@Test
 	public void testUpdateUser() {
@@ -59,29 +60,32 @@ public class UsersByIdTests {
         user.put("userId", "51");
 
         RestAssured.given()
-        .contentType("application/json")
-        .body(user)
-        .when().put("http://localhost:9001/api/v2/users/51").then()
-        .statusCode(200);
-	}
-	
-	/**
-	 * @author Joshua Stark (1802-Matt)
-	 * 
-	 * RESTAssured test to add user to a batch
-	 */
-	@Test
-	public void testAddUserToBatch() {
-
-		RestAssured.given().pathParam("batchId", 3).put("http://localhost:9001/api/v2/users/51/{batchId}")
+	        .contentType("application/json")
+	        .body(user)
+	        .when().put("http://localhost:9001/api/v2/users/51")
 	        .then()
 	        .statusCode(200);
 	}
 	
 	/**
-	 * @author Joshua Stark (1802-Matt)
+	 * RESTAssured test to add user to a batch
 	 * 
+	 * @author Joshua Stark (1802-Matt)
+	 */
+	@Test
+	public void testAddUserToBatch() {
+
+		RestAssured.given()
+			.pathParam("batchId", 3)
+			.put("http://localhost:9001/api/v2/users/51/{batchId}")
+	        .then()
+	        .statusCode(200);
+	}
+	
+	/**
 	 * RESTAssured test to set a user to INACTIVE
+	 * 
+	 * @author Joshua Stark (1802-Matt)
 	 */
 	@Test
 	public void testRemoveUser() {

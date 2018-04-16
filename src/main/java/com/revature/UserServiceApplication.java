@@ -28,8 +28,9 @@ public class UserServiceApplication {
 	}
 	/**
 	 * @author Unknown
-	 * @return new BCryptPasswordEncoder object
 	 * Last updated by: (1802-Matt)
+	 * 
+	 * @return new BCryptPasswordEncoder object
 	 */
 	@Bean
 	public BCryptPasswordEncoder bCryptPasswordEncoder() {
@@ -37,8 +38,9 @@ public class UserServiceApplication {
 	}
 	/**
 	 * @author Jennifer Fox (1802-Matt)
-	 * @return new Swagger_2 Docket object
 	 * Last updated by: (1802-Matt)
+	 * 
+	 * @return new Swagger_2 Docket object
 	 */
 	@Bean
 	public Docket api() {

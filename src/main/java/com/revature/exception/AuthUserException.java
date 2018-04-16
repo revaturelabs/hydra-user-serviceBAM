@@ -15,9 +15,10 @@ public class AuthUserException extends RuntimeException {
 	
 	/**
 	 * @author Unknown
+	 * Last updated by: (1802-Matt)
+	 * 
 	 * @param message String
 	 * @param HttpStatus httpStatus
-	 * Last updated by: (1802-Matt)
 	 */
 	public AuthUserException(String message, HttpStatus httpStatus) {
 		this.message = message;

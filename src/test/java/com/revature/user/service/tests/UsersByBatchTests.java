@@ -19,33 +19,30 @@ import io.restassured.RestAssured;
 public class UsersByBatchTests {
 
 	/**
-	 * @author Joshua Stark (1802-Matt)
-	 * 
 	 * RESTAssured test to get all users to a batch
+	 * 
+	 * @author Joshua Stark (1802-Matt)
 	 */
 	@Test
 	public void testGetUsersInBatch() {
 
-		RestAssured.given().pathParam("batchId", 1234).get("http://localhost:9001/api/v2/users/batches/{batchId}")
-	        .then()
-	        .statusCode(200);
-//		.then()
-//		.body("firstName", equalTo("Matt"));
+		RestAssured.given().pathParam("batchId", 1234)
+			.get("http://localhost:9001/api/v2/users/batches/{batchId}")
+			.then()
+			.body("[0].firstName", equalTo("Matt"));
 	}
 	
 	/**
-	 * @author Joshua Stark (1802-Matt)
-	 * 
 	 * RESTAssured test to get all users to a batch
+	 * 
+	 * @author Joshua Stark (1802-Matt)
 	 */
 	@Test
 	public void testGetUsersNotInBatch() {
 
 		RestAssured.get("http://localhost:9001/api/v2/users/batches/none")
-	        .then()
-	        .statusCode(200);
-//		.then()
-//		.body("firstName", equalTo("Hurri"));
+			.then()
+			.body("[0].firstName", equalTo("Hurri"));
 	}
 	
 }
