@@ -60,8 +60,8 @@ public class BamUser {
 	private String skype;
 
 	@Column(name = "Password_Bak") // This is a backup password that will be
-									// used when
-	private String temporaryPassword;// the user needs to reset their password.
+									// used when the user needs to reset their password.
+	private String temporaryPassword; //should be a better way to do this
 
 	@Column(name = "AssignForce_ID")
 	private Integer assignForceID;
@@ -200,7 +200,7 @@ public class BamUser {
 
 	/**
 	 * @author Unknown
-	 * @return toString
+	 * @return String
 	 * Last updated by: (1802-Matt)
 	 */	
 	@Override

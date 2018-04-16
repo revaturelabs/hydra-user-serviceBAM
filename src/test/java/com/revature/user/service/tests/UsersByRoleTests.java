@@ -21,33 +21,29 @@ import io.restassured.RestAssured;
 public class UsersByRoleTests {
 
 	/**
-	 * @author Joshua Stark (1802-Matt)
-	 * 
 	 * RESTAssured test to get all trainers
+	 * 
+	 * @author Joshua Stark (1802-Matt)
 	 */
 	@Test
 	public void testGetAllTrainers() {
 
 		RestAssured.get("http://localhost:9001/api/v2/users/trainers")
-//	        .then()
-//	        .statusCode(200);
-		.then()
-		.body("[0].firstName", equalTo("Ryan"));
+			.then()
+			.body("[0].firstName", equalTo("Ryan"));
 	}
 	
 	/**
-	 * @author Joshua Stark (1802-Matt)
-	 * 
 	 * RESTAssured test to get all associates
+	 * 
+	 * @author Joshua Stark (1802-Matt)
 	 */
 	@Test
 	public void testGetAllAssociates() {
 
 		RestAssured.get("http://localhost:9001/api/v2/users/associates")
-//	        .then()
-//	        .statusCode(200);
-		.then()
-		.body("[0].firstName", equalTo("Gale"));
+			.then()
+			.body("[0].firstName", equalTo("Gale"));
 	}
 	
 }

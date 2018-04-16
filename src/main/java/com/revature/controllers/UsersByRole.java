@@ -14,7 +14,7 @@ import com.revature.service.BamUserService;
  * 
  * @author John Brand (1802-Matt)
  * 
- * handles all zuul endpoints /users/*ROLE*
+ * handles all Zuul endpoints /users/*ROLE*
  * 
  * GET( /trainers ) - Returns a list<BamUser> of all the users in the database whose role is TRAINER
  * GET( /associates ) - Returns a list<BamUser> of all the users in the database whose role is ASSOCIATE
@@ -28,11 +28,11 @@ public class UsersByRole {
 	BamUserService userService;
 	
 	/**
-	 * @author Jeffrey Camacho 1712-dec10-java-Steve
+	 * Return all the trainers in the database
 	 * 
-	 *         Return all the trainers in the database
+	 * @author Jeffrey Camacho (1712-Steve)
 	 * 
-	 * @return a list of all the users in the database whose role is trainer
+	 * @return List<BamUser> a list of all the users in the database whose role is trainer
 	 */
 
 	@GetMapping("/trainers")
@@ -41,11 +41,11 @@ public class UsersByRole {
 	}
 
 	/**
-	 * @author Jeffrey Camacho 1712-dec10-java-Steve
+	 * Return all the associates in the database
 	 * 
-	 *         Return all the associates in the database
+	 * @author Jeffrey Camacho (1712-Steve)
 	 * 
-	 * @return a list of all the users in the database whose role is associate
+	 * @return List<BamUser> a list of all the users in the database whose role is associate
 	 */
 
 	@GetMapping("/associates")
