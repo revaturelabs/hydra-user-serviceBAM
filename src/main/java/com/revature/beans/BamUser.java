@@ -72,7 +72,7 @@ public class BamUser {
 	}
 
 	public BamUser(String fName, String mName, String lName, String email, String pwd, Role role, int batch,
-			String phone, String phone2, String skype, String pwd2) {// NOSONAR
+			String phone, String phone2, String skype, String pwd2) {
 		super();
 		this.firstName = fName;
 		this.middleName = mName;
@@ -89,7 +89,7 @@ public class BamUser {
 
 
 	public BamUser(String fName, String mName, String lName, String email, String pwd, Role role, int batch,
-			String phone, String phone2, String skype, String pwd2, Integer AssignForceID) {// NOSONAR
+			String phone, String phone2, String skype, String pwd2, Integer AssignForceID) {
 
 		this(fName, mName, lName, email, pwd, role, batch, phone, phone2, skype, pwd2);
 		this.assignForceID = AssignForceID;
@@ -207,18 +207,18 @@ public class BamUser {
 	 */	
 	@Override
 	public String toString() {
-		return "BamUser [/n(User Id) /t userId = " + userId
-				+ "/n(First Name) /t firstName = " + firstName
-				+ "/n(Middle Name) /t middleName = " + middleName
-				+ "/n(Last Name) /t lastName = " + lastName
-				+ "/n(Email) /t email = " + email
-				+ "/n(Password) /t password = " + password
-				+ "/n(Role) /t role = " + role
-				+ "/n(Batch) /t batchId = " + batchId
-				+ "/n(Phone Number) /t phone = " + phone
-				+ "/n(2nd Phone Number) /t phone2 = " + phone2
-				+ "/n(Skype ID) /t skype = " + skype
-				+ "/n(Back up Password) /t temporaryPassword = " + temporaryPassword
-				+ "/n(Forcefully assigns an ID) /t assignForceID = " + assignForceID + "]";
+		return "BamUser [\n(User Id) \t userId = " + userId
+				+ "\n(First Name) \t firstName = " + firstName
+				+ "\n(Middle Name) \t middleName = " + middleName
+				+ "\n(Last Name) \t lastName = " + lastName
+				+ "\n(Email) \t email = " + email
+				+ "\n(Password) \t password = " + password
+				+ "\n(Role) \t role = " + role
+				+ "\n(Batch) \t batchId = " + batchId
+				+ "\n(Phone Number) \t phone = " + phone
+				+ "\n(2nd Phone Number) \t phone2 = " + phone2
+				+ "\n(Skype ID) \t skype = " + skype
+				+ "\n(Back up Password) \t temporaryPassword = " + temporaryPassword
+				+ "\n(Forcefully assigns an ID) \t assignForceID = " + assignForceID + "]";
 	}
 }

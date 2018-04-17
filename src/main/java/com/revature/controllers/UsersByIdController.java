@@ -16,8 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.beans.BamUser;
 import com.revature.beans.Role;
-import com.revature.exception.AuthUserException;
-import com.revature.service.BamUserService;
+import com.revature.exceptions.AuthUserException;
+import com.revature.services.BamUserService;
 
 /**
  * Handles all Zuul endpoints /users/{id}<br>
@@ -79,7 +79,7 @@ public class UsersByIdController {
 	}
 
 	/**
-	 * Method removes user and returns updated batch
+	 * Removes user and returns updated batch
 	 * 
 	 * @author Jeffrey Camacho (1712-Steve)
 	 * 
@@ -114,7 +114,7 @@ public class UsersByIdController {
 	}
 
 	/**
-	 * adds users to the batch
+	 * Adds users to the batch
 	 * 
 	 * @author Jeffrey Camacho (1712-Steve)
 	 * 

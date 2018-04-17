@@ -1,4 +1,4 @@
-package com.revature.service;
+package com.revature.services;
 
 import java.util.List;
 
@@ -8,7 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.revature.beans.BamUser;
 import com.revature.beans.Role;
-import com.revature.repository.BamUserRepository;
+import com.revature.repositories.BamUserRepository;
 
 /**
  * Purpose: Business Logic between controller and repository
@@ -18,7 +18,7 @@ import com.revature.repository.BamUserRepository;
  */
 @Service
 public class BamUserService {
-	// autowire a bean to the user repository
+	
 	@Autowired
 	BamUserRepository bamUserRepository;
 

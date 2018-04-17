@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.beans.BamUser;
 import com.revature.beans.Role;
-import com.revature.service.BamUserService;
+import com.revature.services.BamUserService;
 
 /**
  * Handles all Zuul endpoints /users/*ROLE* <br>
