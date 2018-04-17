@@ -1,4 +1,4 @@
-package com.revature.user.service.tests;
+package com.revature.tests.controllers;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 
@@ -8,7 +8,8 @@ import io.restassured.RestAssured;
 
 /**
  * 
- * @author Joshua Stark and John Brand (1802-Matt)
+ * @author Joshua Stark (1802-Matt)
+ * @author John Brand (1802-Matt)
  * 
  * Tests for:
  *  GET( /batches/{batchId} ) 

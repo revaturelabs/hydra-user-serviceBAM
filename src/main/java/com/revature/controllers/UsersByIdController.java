@@ -20,19 +20,19 @@ import com.revature.exception.AuthUserException;
 import com.revature.service.BamUserService;
 
 /**
- * 
+ * Handles all Zuul endpoints /users/{id}<br>
+ * <br>
+ * Get( /{userId} ) - {@link #getUsersById(Integer)}<br>
+ * Put( /{userId} ) - {@link #updateUser(BamUser)}<br>
+ * Delete( /{userId} ) - {@link #removeUser(int)}<br>
+ * Put( /{userId}/{batchId} ) - {@link #addUserToBatch(int, int)}<br>
+ * <br>
+ * NOTE: There is no Post method for /{userId} endpoint, userId are created by
+ * sequence in table, you can not add a user to a table based off a userId.
+ *
  * @author John Brand (1802-Matt)
  *
- *	handles all Zuul endpoints /users/{id}
- *
- *	Get( /{userId} ) - Get a user by their userId
- *	Put( /{userId} ) - Update user information
- *	Delete( /{userId} ) - "remove" user from table.  User information isn't deleted from table
- *						- but should not be returnable to client.  Preserved in Database for administrative purposes.
- *	Put( /{userId}/{batchId} ) - updates user of {userId}'s batch with {batchId}
- *
- *	NOTE: There is no Post method for /{userId} endpoint, userId are created by sequence in table, 
- *		you can not add a user to a table based off a userId.
+ * 
  *
  */
 
@@ -41,35 +41,32 @@ public class UsersByIdController {
 
 	@Autowired
 	BamUserService userService;
-	
+
 	/**
 	 * Gets a specific user by their id
 	 * 
-	 * @author TJay Cargle 1801-jan8-java 
+	 * @author TJay Cargle 1801-jan8-java
 	 * 
 	 * @return User with that id
-	 * @param Integer userId of the user we want to grab
+	 * @param userId of the user we want to grab
 	 */
 	@GetMapping("/{userId}")
 	public BamUser getUsersById(@PathVariable Integer userId) {
 		BamUser user = userService.findUserById(userId);
 		return user;
 	}
-	
-	
+
 	/**
 	 * Updates the current user
-	 * @author Jeffrey Camacho (1712-Steve)
 	 * 
-	 * @LastUpdated John Brand and Joshua Stark (1802-Matt)
-	 * 		Moved to UsersByUserIdController
+	 * @author Jeffrey Camacho (1712-Steve)
+	 * @author John Brand (1802-Matt)
+	 * @author Joshua Stark (1802-Matt)
 	 * 
 	 * @return the updated BamUser
-	 * @param currentUser
-	 *            WE THINK THIS IS THE USER LOGGED IN, PLEASE CHANGE WHEN WORKED ON
+	 * @param currentUser WE THINK THIS IS THE USER LOGGED IN, PLEASE CHANGE WHEN WORKED ON
 	 * @throws AuthUserException
 	 */
-	// TODO: FIND OUT WHAT CURRENTUSER IS
 	@PutMapping("/{userId}")
 	public BamUser updateUser(@RequestBody BamUser currentUser) throws AuthUserException {
 
@@ -80,16 +77,16 @@ public class UsersByIdController {
 			throw new AuthUserException("User not updated/available", HttpStatus.BAD_REQUEST);
 		}
 	}
-	
+
 	/**
 	 * Method removes user and returns updated batch
-	 * @author Jeffrey Camacho (1712-Steve)  
-	 *         
-	 * @LastUpdated John Brand (1802-Matt)
-	 * 		Moved to UsersByUserIdController
+	 * 
+	 * @author Jeffrey Camacho (1712-Steve)
+	 * 
+	 * @author John Brand (1802-Matt)
 	 * 
 	 * @return Updated list of people in the batch
-	 * @param int userID of the user we want to remove
+	 * @param userID of the user we want to remove
 	 * @throws AuthUserException
 	 * @throws IOException
 	 * @throws ServletException
@@ -115,17 +112,17 @@ public class UsersByIdController {
 			throw new AuthUserException("User not removed/available", HttpStatus.BAD_REQUEST);
 		}
 	}
-	
+
 	/**
 	 * adds users to the batch
-	 * @author Jeffrey Camacho (1712-Steve) 
 	 * 
-	 * @LastUpdated John Brand (1802-Matt)
-	 * 		Moved to UsersByUserIdController
+	 * @author Jeffrey Camacho (1712-Steve)
+	 * 
+	 * @author John Brand (1802-Matt)
 	 * 
 	 * @return Updated list of all users in the batch
-	 * @param int userId of the user we are adding to the batch
-	 * @param int batchId of the batch we want to add the user to
+	 * @param userId of the user we are adding to the batch
+	 * @param batchId of the batch we want to add the user to
 	 * @throws AuthUserException
 	 */
 	@PutMapping("/{userId}/{batchId}")
@@ -144,5 +141,5 @@ public class UsersByIdController {
 			throw new AuthUserException("User not added/available", HttpStatus.BAD_REQUEST);
 		}
 	}
-	
+
 }

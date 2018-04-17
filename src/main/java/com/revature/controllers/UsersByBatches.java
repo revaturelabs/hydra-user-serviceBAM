@@ -17,28 +17,28 @@ import com.revature.service.BamUserService;
 
 /**
  * 
+ * Handles all Zuul endpoints /users/batches<br>
+ * <br>
+ * GET( /batches/{batchId} ) - {@link #getUsersInBatch(int)}<br>
+ * GET( /batches/none ) - {@link #getUsersNotInBatch()}
+ * 
  * @author John Brand (1802-Matt)
  * 
- * handles all Zuul endpoints /users/batches
- * 
- * GET( /batches/{batchId} ) - Returns all users in batch with {batchId}
- * GET( /batches/none ) - Returns all users not currently in a batch. Currently {batchId} = zero
  */
-
 
 @RestController
 public class UsersByBatches {
 
 	@Autowired
 	BamUserService userService;
-	
+
 	/**
 	 * Gets all users in batch
 	 * 
 	 * @author Jeffrey Camacho (1712-Steve)
 	 * 
 	 * @return List of all users in batch
-	 * @param int batchId of the batch we are trying to find
+	 * @param batchId of the batch we are trying to find
 	 * @throws IOException
 	 * @throws ServletException
 	 */
@@ -56,14 +56,12 @@ public class UsersByBatches {
 	 * 
 	 * @author Jeffrey Camacho (1712-Steve)
 	 * 
-	 * @return List<BamUser> List of users that are not in a batch
+	 * @return List of users that are not in a batch
 	 */
 	@GetMapping("/batches/none")
 	public List<BamUser> getUsersNotInBatch() {
 		List<BamUser> usersNotInBatch = userService.findUsersNotInBatch();
 		return usersNotInBatch;
 	}
-	
-	
-	
+
 }

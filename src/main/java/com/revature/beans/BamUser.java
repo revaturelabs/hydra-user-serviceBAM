@@ -10,8 +10,9 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 /**
- * @author Unknown
  * Last updated by: (1802-Matt)
+ * @author Unknown
+ * 
  */
 
 @Entity
@@ -19,51 +20,51 @@ import javax.validation.constraints.NotNull;
 public class BamUser {
 
 	@Id
-	@Column(name = "User_Id")
+	@Column(name = "USER_ID")
 	@SequenceGenerator(name = "USERID_SEQ", sequenceName = "USERID_SEQ")
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "USERID_SEQ")
 	private int userId;
 
-	@Column(name = "First_Name")
+	@Column(name = "FIRST_NAME")
 	@NotNull(message = "First name cannot be empty")
 	private String firstName;
 
-	@Column(name = "Middle_Name")
+	@Column(name = "MIDDLE_NAME")
 	private String middleName;
 
-	@Column(name = "Last_Name")
+	@Column(name = "LAST_NAME")
 	@NotNull(message = "Last name cannot be empty")
 	private String lastName;
 
-	@Column(name = "EMail", unique = true)
+	@Column(name = "EMAIL", unique = true)
 	@NotNull(message = "e-mail address cannot be empty")
 	private String email;
 
-	@Column(name = "Password")
+	@Column(name = "PASSWORD")
 	@NotNull(message = "Password cannot be empty")
 	private String password;
 
-	@Column(name = "Role")
+	@Column(name = "ROLE")
 	private Role role;
 
-	@Column(name = "Batch_Id")
+	@Column(name = "BATCH_ID")
 	private Integer batchId;
 
-	@Column(name = "Main_Phone")
+	@Column(name = "MAIN_PHONE")
 	@NotNull(message = "Primary phone cannot be empty")
 	private String phone;
 
-	@Column(name = "Second_Phone")
+	@Column(name = "SECONDARY_PHONE")
 	private String phone2;
 
-	@Column(name = "Skype_ID")
+	@Column(name = "SKYPE_ID")
 	private String skype;
 
-	@Column(name = "Password_Bak") // This is a backup password that will be
+	@Column(name = "PASSWORD_BAK") // This is a backup password that will be
 									// used when the user needs to reset their password.
 	private String temporaryPassword; //should be a better way to do this
 
-	@Column(name = "AssignForce_ID")
+	@Column(name = "ASSIGNFORCE_ID")
 	private Integer assignForceID;
 
 	public BamUser() {
@@ -199,24 +200,25 @@ public class BamUser {
 	}
 
 	/**
+	 * Last updated by: (1802-Matt)
 	 * @author Unknown
 	 * @return String
-	 * Last updated by: (1802-Matt)
+	 * 
 	 */	
 	@Override
 	public String toString() {
 		return "BamUser [/n(User Id) /t userId = " + userId
-				+ "/n(First Name) /t fName = " + firstName
-				+ "/n(Middle Name) /t mName = " + middleName
-				+ "/n(Last Name) /t lName = " + lastName
+				+ "/n(First Name) /t firstName = " + firstName
+				+ "/n(Middle Name) /t middleName = " + middleName
+				+ "/n(Last Name) /t lastName = " + lastName
 				+ "/n(Email) /t email = " + email
-				+ "/n(Password) /t pwd = " + password
+				+ "/n(Password) /t password = " + password
 				+ "/n(Role) /t role = " + role
-				+ "/n(Batch) /t batch = " + batchId
+				+ "/n(Batch) /t batchId = " + batchId
 				+ "/n(Phone Number) /t phone = " + phone
 				+ "/n(2nd Phone Number) /t phone2 = " + phone2
 				+ "/n(Skype ID) /t skype = " + skype
-				+ "/n(Back up Password) /t pwd2 = " + temporaryPassword
+				+ "/n(Back up Password) /t temporaryPassword = " + temporaryPassword
 				+ "/n(Forcefully assigns an ID) /t assignForceID = " + assignForceID + "]";
 	}
 }
