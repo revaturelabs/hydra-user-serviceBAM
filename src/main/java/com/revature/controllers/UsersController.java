@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.beans.BamUser;
 import com.revature.beans.Role;
-import com.revature.exception.AuthUserException;
-import com.revature.service.BamUserService;
+import com.revature.exceptions.AuthUserException;
+import com.revature.services.BamUserService;
 
 /**
  * Handles all Zuul endpoints /users/<br>
@@ -38,7 +38,7 @@ public class UsersController {
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
 
 	/**
-	 * Method registers the current user
+	 * Registers the current user
 	 * 
 	 * @author Jeffrey Camacho (1712-Steve)
 	 * 

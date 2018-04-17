@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.beans.BamUser;
-import com.revature.service.BamUserService;
+import com.revature.services.BamUserService;
 
 /**
  * 
