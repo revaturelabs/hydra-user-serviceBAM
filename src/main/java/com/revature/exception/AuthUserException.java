@@ -2,9 +2,11 @@ package com.revature.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
+
 /**
- * @author Unknown
  * Last updated by: (1802-Matt)
+ * 
+ * @author Unknown 
  */
 @ResponseStatus(value = HttpStatus.UNAUTHORIZED)
 public class AuthUserException extends RuntimeException {
@@ -12,15 +14,17 @@ public class AuthUserException extends RuntimeException {
 
 	private final String message;
 	private final HttpStatus httpStatus;
-	
+
 	/**
-	 * @author Unknown
 	 * Last updated by: (1802-Matt)
 	 * 
-	 * @param message String
-	 * @param HttpStatus httpStatus
+	 * @author Unknown
+	 * 
+	 * @param message
+	 * @param HttpStatus
 	 */
 	public AuthUserException(String message, HttpStatus httpStatus) {
+		super();
 		this.message = message;
 		this.httpStatus = httpStatus;
 	}

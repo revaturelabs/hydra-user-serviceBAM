@@ -11,8 +11,10 @@ import com.revature.beans.Role;
 import com.revature.repository.BamUserRepository;
 
 /**
- * @Author: Devin Dellamano 
  * Purpose: Business Logic between controller and repository
+ * 
+ * @author: Devin Dellamano
+ * 
  */
 @Service
 public class BamUserService {
@@ -20,18 +22,14 @@ public class BamUserService {
 	@Autowired
 	BamUserRepository bamUserRepository;
 
-	public BamUserService(BamUserRepository bamUserRepository) {
-		this.bamUserRepository = bamUserRepository;
-	}
-
 	/**
-	 * Save the user to the database if the user doesn't exist, update the
-	 *         user's information if he does exist
-	 *         
+	 * Save the user to the database if the user doesn't exist, update the user's
+	 * information if he does exist
+	 * 
 	 * @author Devin Dellamano
 	 * 
-	 * @return BamUser the BamUser we put in the database
-	 * @param BamUser the BamUser we want to add or update in the database
+	 * @return the BamUser we put in the database
+	 * @param the BamUser we want to add or update in the database
 	 */
 	@Transactional
 	public BamUser addOrUpdateUser(BamUser user) {
@@ -40,9 +38,10 @@ public class BamUserService {
 
 	/**
 	 * Gets all the BamUsers in the database
+	 * 
 	 * @author Devin Dellamano
 	 * 
-	 * @return List<BamUser> List of BamUsers containing all entries in the database
+	 * @return List of BamUsers containing all entries in the database
 	 */
 	public List<BamUser> findAllUsers() {
 		return bamUserRepository.findAll();
@@ -50,10 +49,11 @@ public class BamUserService {
 
 	/**
 	 * Gets all BamUsers of a particular role
+	 * 
 	 * @author Devin Dellamano
 	 * 
-	 * @return List<BamUser> List of BamUsers containing all entries related to a specific role
-	 * @param Role trainer the Role we want to filter the search by
+	 * @return List of BamUsers containing all entries related to a specific role
+	 * @param the Role we want to filter the search by
 	 */
 	public List<BamUser> findByRole(Role trainer) {
 		return bamUserRepository.findByRole(trainer);
@@ -61,10 +61,11 @@ public class BamUserService {
 
 	/**
 	 * Gets a particular BamUser by their id
+	 * 
 	 * @author Devin Dellamano
 	 * 
-	 * @return BamUser user with that particular id
-	 * @param int userId the id of the BamUser we are trying to find
+	 * @return user with that particular id
+	 * @param  the id of the BamUser we are trying to find
 	 */
 	public BamUser findUserById(int userId) {
 		return bamUserRepository.findByUserId(userId);
@@ -72,10 +73,11 @@ public class BamUserService {
 
 	/**
 	 * Returns a specific BamUser by their email
+	 * 
 	 * @author Devin Dellamano
 	 * 
-	 * @return BamUser user with that particular email
-	 * @param String email the email of the BamUser we are trying to find
+	 * @return user with that particular email
+	 * @param the email of the BamUser we are trying to find
 	 */
 	public BamUser findUserByEmail(String email) {
 		return bamUserRepository.findByEmail(email);
@@ -83,14 +85,14 @@ public class BamUserService {
 
 	/**
 	 * Find a specific user identified by his first and last name
-	 * @author Devin Dellamano
-	 * @LastUpdated Joshua Stark (1802-Matt) 
-	 * 		variable name changes
 	 * 
-	 * @return List<BamUser> a list of users whose first and last names match the first and last
+	 * @author Devin Dellamano
+	 * @author Joshua Stark (1802-Matt)
+	 * 
+	 * @return a list of users whose first and last names match the first and last
 	 *         name provided
-	 * @param String the first name of the specific user
-	 * @param String the last name of the specific user
+	 * @param the first name of the specific user
+	 * @param the last name of the specific user
 	 */
 	public List<BamUser> getByFNameAndLName(String firstName, String lastName) {
 		return bamUserRepository.findByFirstNameAndLastName(firstName, lastName);
@@ -98,10 +100,11 @@ public class BamUserService {
 
 	/**
 	 * Find the users in a specific batch identified by batchId
+	 * 
 	 * @author Devin Dellamano
 	 * 
-	 * @return List<BamUser> the users in the specific batch
-	 * @param int the ID of the specific batch
+	 * @return the users in the specific batch
+	 * @param the ID of the specific batch
 	 */
 	public List<BamUser> findUsersInBatch(int batchId) {
 		return bamUserRepository.findByBatchId(batchId);
@@ -109,9 +112,10 @@ public class BamUserService {
 
 	/**
 	 * Return the users that are not in a batch
+	 * 
 	 * @author Devin Dellamano
 	 *
-	 * @return List<BamUser> a list of users that are not in a batch
+	 * @return a list of users that are not in a batch
 	 */
 	public List<BamUser> findUsersNotInBatch() {
 		List<BamUser> users = bamUserRepository.findByBatchId(0);

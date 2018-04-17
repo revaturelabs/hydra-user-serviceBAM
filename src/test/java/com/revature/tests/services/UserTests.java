@@ -1,4 +1,4 @@
-package com.revature.user.service.tests;
+package com.revature.tests.services;
 
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;
@@ -25,7 +25,7 @@ public class UserTests {
 	
 	static BamUserRepository mockUserRepo = mock(BamUserRepository.class);
 	static BamUser mockUser = mock(BamUser.class);
-	static BamUserService bamService = new BamUserService(mockUserRepo);
+	static BamUserService bamService = mock(BamUserService.class);
 	/**
 	 * @author Unknown
 	 *  Last updated by: (1802-Matt)

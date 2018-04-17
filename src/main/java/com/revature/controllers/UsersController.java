@@ -17,14 +17,15 @@ import com.revature.exception.AuthUserException;
 import com.revature.service.BamUserService;
 
 /**
- * 
- * @author Jeffrey Camacho (1712-Steve)
- * @LastUpdated John Brand (1802-Matt)
- * 
- * handles all Zuul endpoints /users/
+ * Handles all Zuul endpoints /users/<br>
+ * <br>
+ * POST ( / )- {@link #addUser(BamUser)}<br>
+ * GET ( / ) - {@link #getAllUsers()}
  *
- *	POST ( / )- takes in a JSON BamUser, returns JSON of the registered BamUser
- *	GET ( / ) - Returns a list<BamUser> of all users
+ * @author Jeffrey Camacho (1712-Steve)
+ * @author John Brand (1802-Matt)
+ * 
+ * 
  */
 
 @RestController
@@ -38,11 +39,11 @@ public class UsersController {
 
 	/**
 	 * Method registers the current user
-	 * @author Jeffrey Camacho (1712-Steve) 
 	 * 
-	 * @return BamUser user that was registered
-	 * @param BamUser currentUser
-	 *            WE THINK THIS IS THE USER LOGGED IN, PLEASE CHANGE WHEN WORKED ON
+	 * @author Jeffrey Camacho (1712-Steve)
+	 * 
+	 * @return user that was registered
+	 * @param currentUser WE THINK THIS IS THE USER LOGGED IN, PLEASE CHANGE WHEN WORKED ON
 	 * @throws AuthUserException
 	 */
 	@PostMapping("/")
@@ -63,7 +64,7 @@ public class UsersController {
 	 * 
 	 * @author Jeffrey Camacho (1712-Steve)
 	 * 
-	 * @return List<BamUser> a list of all the users in the database
+	 * @return a list of all the users in the database
 	 */
 
 	@GetMapping("/")
@@ -71,5 +72,4 @@ public class UsersController {
 		return userService.findAllUsers();
 	}
 
-	
 }
